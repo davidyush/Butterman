@@ -1,18 +1,17 @@
 extends KinematicBody2D
 
+onready var PlayerExplosion = preload("res://src/Player/PlayerExplosion.tscn")
+
 #todo -> full refactor with pure functions
 
-var little = 4
-var big = 7
-
-export (int) var ACCELERATION = 2048
-export (int) var MAX_SPEED = 256
+export (int) var ACCELERATION = 2000
+export (int) var MAX_SPEED = 250
 export (float) var FRICTION = 0.15
-export (int) var GRAVITY = 1092
+export (int) var GRAVITY = 1000
 export (int) var WALL_SLIDE_SPEED = 150
-export (int) var MAX_WALL_SLIDE_SPEED = 256
+export (int) var MAX_WALL_SLIDE_SPEED = 250
 export (int) var JUMP_FORCE = 500
-export (int) var MAX_SLOPE_ANGLE = 46
+export (int) var MAX_SLOPE_ANGLE = 50
 export (int) var PHYS_PUSH = 100
 
 enum {
@@ -24,6 +23,7 @@ var state = MOVE
 var motion = Vector2.ZERO
 var snap_vector = Vector2.ZERO
 var just_jumped = false
+var can_control = true
 
 onready var label = $Label
 onready var sprite = $Sprite
@@ -31,35 +31,39 @@ onready var sprite = $Sprite
 func _physics_process(delta: float) -> void:
     just_jumped = false
     
+    if can_control:
+        apply_speed_up()
+        match state:
+            MOVE:
+                label.text = 'M'
+                var input_vector = get_input_vector()
+                apply_horizontal_force(input_vector, delta)
+                apply_friction(input_vector)
+                update_snap_vector()
+                jump_check()
+                apply_gravity(delta)
+                move()
+                wall_slide_check()
+                
+            WALL_SLIDE:
+                label.text = 'W'
+                var wall_axis = get_wall_axis()
+                if wall_axis != 0:
+                    sprite.scale.x = wall_axis
+                wall_slide_jump_check(wall_axis)
+                wall_slide_drop(delta)
+                move()
+                wall_detach(delta, wall_axis)
+
+func apply_speed_up():
     if Input.is_action_pressed("speed_up"):
         if is_on_floor():
-            MAX_SPEED = 448
+            MAX_SPEED = 450
         else:
-            MAX_SPEED = 488
+            MAX_SPEED = 500
     if Input.is_action_just_released("speed_up"):
-        MAX_SPEED = 256
+        MAX_SPEED = 250
     
-    match state:
-        MOVE:
-            label.text = 'M'
-            var input_vector = get_input_vector()
-            apply_horizontal_force(input_vector, delta)
-            apply_friction(input_vector)
-            update_snap_vector()
-            jump_check()
-            apply_gravity(delta)
-            move()
-            wall_slide_check()
-            
-        WALL_SLIDE:
-            label.text = 'W'
-            var wall_axis = get_wall_axis()
-            if wall_axis != 0:
-                sprite.scale.x = wall_axis
-            wall_slide_jump_check(wall_axis)
-            wall_slide_drop(delta)
-            move()
-            wall_detach(delta, wall_axis)
 
 func get_input_vector():
     var input_vector = Vector2.ZERO
@@ -155,7 +159,7 @@ func wall_slide_jump_check(wall_axis):
         var right_wall_jump = wall_axis < 0 and Input.is_action_pressed("move_left")
         if left_dir or right_dir:
             motion.x = wall_axis * MAX_SPEED
-            motion.y = -JUMP_FORCE * 1.5
+            motion.y = -JUMP_FORCE * 1.1
             state = MOVE
         elif left_wall_jump or right_wall_jump:
             motion.x = wall_axis * MAX_SPEED
@@ -183,3 +187,17 @@ func wall_detach(delta, wall_axis):
         
     if wall_axis == 0 or is_on_floor():
         state = MOVE
+
+
+func die():
+    print('player is dead')
+    var player_exlosion = PlayerExplosion.instance()
+    sprite.visible = false
+    can_control = false
+    add_child(player_exlosion)
+    yield(player_exlosion,"tree_exited")
+    var parent = get_parent()
+    var respoune = parent.get_node("Respoune")
+    global_position = respoune.global_position
+    sprite.visible = true
+    can_control = true

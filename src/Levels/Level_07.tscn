@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://src/Objects/TileMap/TileMap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Camera/Camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Levels/LevelTemplate.gd" type="Script" id=4]
+[ext_resource path="res://src/Toast/Toast.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Objects/Platform/Platform.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Objects/DoughnutMachine/DoughnutMachine.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Objects/BlinkBlock/BlinkBlock.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Objects/Portal/PortalPair.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 4, 3.11842, 0, 0, 0, 0, 271, 3.63815, 0, 0, 0, 0, 272, -37.9408, 0, 0, 0, 0, 519, -38.9803, 0, 0, 0, 0, 519, 3.11842, 0, 0, 0, 0, 805, 3.11842 )
+}
+
+[node name="Level_07" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="TileMap" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 0, 0, 0, 95, 0, 0, 65536, 0, 0, 65631, 0, 0, 131072, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131123, 0, 0, 131124, 0, 0, 131125, 0, 0, 131126, 0, 0, 131167, 0, 0, 196608, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196659, 0, 0, 196660, 0, 0, 196661, 0, 0, 196662, 0, 0, 196703, 0, 0, 262144, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262195, 0, 0, 262196, 0, 0, 262197, 0, 0, 262198, 0, 0, 262239, 0, 0, 327680, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327731, 0, 0, 327732, 0, 0, 327733, 0, 0, 327734, 0, 0, 327775, 0, 0, 393216, 0, 0, 393311, 0, 0, 458752, 0, 0, 458847, 0, 0, 524288, 0, 0, 524383, 0, 0, 589824, 0, 0, 589919, 0, 0, 655360, 0, 0, 655455, 0, 0, 720896, 0, 0, 720991, 0, 0, 786432, 0, 0, 786527, 0, 0, 851968, 0, 0, 852059, 0, 0, 852060, 0, 0, 852061, 0, 0, 852062, 0, 0, 852063, 0, 0, 917504, 0, 0, 917596, 0, 0, 917597, 0, 0, 917598, 0, 0, 917599, 0, 0, 983040, 0, 0, 983133, 0, 0, 983134, 0, 0, 983135, 0, 0, 1048576, 0, 0, 1048670, 0, 0, 1048671, 0, 0, 1114112, 0, 0, 1114207, 0, 0, 1179648, 0, 0, 1179743, 0, 0, 1245184, 0, 0, 1245279, 0, 0, 1310720, 0, 0, 1310721, 0, 0, 1310722, 0, 0, 1310723, 0, 0, 1310724, 0, 0, 1310815, 0, 0, 1376256, 0, 0, 1376257, 0, 0, 1376258, 0, 0, 1376259, 0, 0, 1376289, 0, 0, 1376290, 0, 0, 1376291, 0, 0, 1376292, 0, 0, 1376293, 0, 0, 1376351, 0, 0, 1441792, 0, 0, 1441793, 0, 0, 1441794, 0, 0, 1441825, 0, 0, 1441826, 0, 0, 1441827, 0, 0, 1441828, 0, 0, 1441829, 0, 0, 1441887, 0, 0, 1507328, 0, 0, 1507329, 0, 0, 1507361, 0, 0, 1507362, 0, 0, 1507363, 0, 0, 1507364, 0, 0, 1507365, 0, 0, 1507423, 0, 0, 1572864, 0, 0, 1572897, 0, 0, 1572898, 0, 0, 1572899, 0, 0, 1572900, 0, 0, 1572901, 0, 0, 1572959, 0, 0, 1638400, 0, 0, 1638433, 0, 0, 1638434, 0, 0, 1638435, 0, 0, 1638436, 0, 0, 1638437, 0, 0, 1638495, 0, 0, 1703936, 0, 0, 1704031, 0, 0, 1769472, 0, 0, 1769567, 0, 0, 1835008, 0, 0, 1835103, 0, 0, 1900544, 0, 0, 1900639, 0, 0, 1966080, 0, 0, 1966175, 0, 0, 2031711, 0, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 46, 307 )
+
+[node name="RemoteTransform2D" parent="Player" index="2"]
+remote_path = NodePath("../../Camera")
+
+[node name="Respoune" type="Position2D" parent="."]
+
+[node name="Camera" parent="." instance=ExtResource( 3 )]
+position = Vector2( 46, 307 )
+
+[node name="Toast" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1499, 195 )
+
+[node name="Platform" parent="." instance=ExtResource( 6 )]
+position = Vector2( 160, 325 )
+
+[node name="KinematicBody2D" parent="Platform" index="0"]
+position = Vector2( 19, 1 )
+
+[node name="Path2D" parent="Platform" index="1"]
+position = Vector2( 15, -5 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" parent="Platform/Path2D" index="0"]
+position = Vector2( 4, 3.11842 )
+
+[node name="AnimationPlayer" parent="Platform" index="2"]
+playback_speed = 0.2
+
+[node name="DoughnutMachine" parent="." instance=ExtResource( 7 )]
+position = Vector2( 568, 376 )
+
+[node name="DoughnutMachine2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 848, 63 )
+
+[node name="DoughnutMachine3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 223, 62 )
+
+[node name="PortalPair" parent="." instance=ExtResource( 9 )]
+
+[node name="Portal" parent="PortalPair" index="0"]
+position = Vector2( 1051, 265 )
+
+[node name="Portal2" parent="PortalPair" index="1"]
+position = Vector2( 1380, 138 )
+
+[node name="BlinkBlocks" type="Node2D" parent="."]
+
+[node name="BlinkBlock" parent="BlinkBlocks" instance=ExtResource( 8 )]
+position = Vector2( 823, 397 )
+
+[node name="BlinkBlock2" parent="BlinkBlocks" instance=ExtResource( 8 )]
+position = Vector2( 855, 397 )
+
+[node name="BlinkBlock3" parent="BlinkBlocks" instance=ExtResource( 8 )]
+position = Vector2( 887, 397 )
+
+[node name="BlinkBlock4" parent="BlinkBlocks" instance=ExtResource( 8 )]
+position = Vector2( 919, 397 )
+
+[editable path="Player"]
+
+[editable path="Platform"]
+
+[editable path="PortalPair"]

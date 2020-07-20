@@ -2,35 +2,33 @@ extends Node2D
 
 onready var tile_map = $TileMap
 onready var camera = $Camera
-
+onready var respoune = $Respoune
+onready var player = $Player 
 const CELL_SIZE = 16
 
+var map_limits: Dictionary
+
 func _ready() -> void:
-    var all_cells = tile_map.get_used_cells()
-    var limits = get_limits(all_cells)
-    camera.limit_bottom = limits.bottom
-    camera.limit_left = limits.left
-    camera.limit_right = limits.right
-    camera.limit_top = limits.top
+    get_tree().paused = false
+    respoune.global_position = player.global_position
+    map_limits = get_lims(tile_map)
+    camera.limit_bottom = map_limits.bottom
+    camera.limit_left = map_limits.left
+    camera.limit_right = map_limits.right
+    camera.limit_top = map_limits.top
     
 
-func get_limits(arr: Array) -> Dictionary:
-    var bottom = 0
-    var right = 0
-    var top = 9999
-    var left = 9999
-    for val in arr:
-        if val.y > bottom:
-            bottom = val.y
-        if val.y < top:
-            top = val.y
-        if val.x > right:
-            right = val.x
-        if val.x < left:
-            left = val.x
+func get_lims(tile_map_node: TileMap) -> Dictionary:
+    var tile_rect = tile_map_node.get_used_rect()
+    var tile_size = tile_rect.size * CELL_SIZE
+    var tile_positon = tile_rect.position * CELL_SIZE
     return {
-        'top': top * CELL_SIZE,
-        'bottom': bottom * CELL_SIZE + CELL_SIZE,
-        'left': left * CELL_SIZE,
-        'right': right * CELL_SIZE + CELL_SIZE
-    }
+        'top': tile_positon.y,
+        'left': tile_positon.x,
+        'bottom': tile_size.y,
+        'right': tile_size.x
+       }
+
+func _physics_process(delta: float) -> void:
+    if player.global_position.y > map_limits.bottom * 1.5:
+        player.die()

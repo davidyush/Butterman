@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/Objects/life_for.png" type="Texture" id=1]
 [ext_resource path="res://assets/Objects/block_for.png" type="Texture" id=2]
-[ext_resource path="res://assets/Objects/doughnut_big.png" type="Texture" id=3]
+[ext_resource path="res://assets/Objects/doughnut_pink.png" type="Texture" id=3]
+[ext_resource path="res://src/Objects/DoughnutMachine/DoughnutMachine.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -29,6 +30,7 @@ tracks/0/keys = {
 }
 
 [node name="DoughnutMachine" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="Block" type="StaticBody2D" parent="."]
 
@@ -61,3 +63,4 @@ shape = SubResource( 3 )
 autoplay = "init"
 playback_speed = 0.5
 anims/init = SubResource( 4 )
+[connection signal="body_entered" from="Stick/DoughnutBig" to="." method="_on_DoughnutBig_body_entered"]

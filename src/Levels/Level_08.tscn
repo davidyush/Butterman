@@ -1,0 +1,94 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://src/Objects/TileMap/TileMap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Camera/Camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Levels/LevelTemplate.gd" type="Script" id=4]
+[ext_resource path="res://src/Toast/Toast.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Objects/DoughnutCannon/DoughnutCannon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Objects/Conveyor/Conveyor.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Objects/Portal/PortalPair.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Objects/Platform/Platform.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1, 0.519737, 0, 0, 0, 0, 190, 0 )
+}
+
+[node name="LevelTemplate" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="TileMap" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 0, 0, 0, 69, 0, 0, 65536, 0, 0, 65605, 0, 0, 131072, 0, 0, 131141, 0, 0, 196608, 0, 0, 196677, 0, 0, 262144, 0, 0, 262213, 0, 0, 327680, 0, 0, 327700, 0, 0, 327701, 0, 0, 327702, 0, 0, 327703, 0, 0, 327704, 0, 0, 327749, 0, 0, 393216, 0, 0, 393237, 0, 0, 393238, 0, 0, 393239, 0, 0, 393285, 0, 0, 458752, 0, 0, 458774, 0, 0, 458821, 0, 0, 524288, 0, 0, 524357, 0, 0, 589824, 0, 0, 589893, 0, 0, 655360, 0, 0, 655428, 0, 0, 655429, 0, 0, 720896, 0, 0, 720964, 0, 0, 720965, 0, 0, 786432, 0, 0, 786500, 0, 0, 786501, 0, 0, 851968, 0, 0, 852036, 0, 0, 852037, 0, 0, 917504, 0, 0, 917572, 0, 0, 917573, 0, 0, 983040, 0, 0, 983108, 0, 0, 983109, 0, 0, 1048576, 0, 0, 1048644, 0, 0, 1048645, 0, 0, 1114112, 0, 0, 1114180, 0, 0, 1114181, 0, 0, 1179648, 0, 0, 1179716, 0, 0, 1179717, 0, 0, 1245184, 0, 0, 1245252, 0, 0, 1245253, 0, 0, 1310720, 0, 0, 1310788, 0, 0, 1310789, 0, 0, 1376256, 0, 0, 1376324, 0, 0, 1376325, 0, 0, 1441792, 0, 0, 1441859, 0, 0, 1441860, 0, 0, 1441861, 0, 0, 1507328, 0, 0, 1507329, 0, 0, 1507330, 0, 0, 1507395, 0, 0, 1507396, 0, 0, 1507397, 0, 0, 1572864, 0, 0, 1572865, 0, 0, 1572866, 0, 0, 1572867, 0, 0, 1572868, 0, 0, 1572869, 0, 0, 1572870, 0, 0, 1572871, 0, 0, 1572872, 0, 0, 1572873, 0, 0, 1572874, 0, 0, 1572875, 0, 0, 1572876, 0, 0, 1572877, 0, 0, 1572878, 0, 0, 1572879, 0, 0, 1572880, 0, 0, 1572881, 0, 0, 1572882, 0, 0, 1572883, 0, 0, 1572884, 0, 0, 1572885, 0, 0, 1572886, 0, 0, 1572887, 0, 0, 1572888, 0, 0, 1572889, 0, 0, 1572890, 0, 0, 1572891, 0, 0, 1572892, 0, 0, 1572893, 0, 0, 1572894, 0, 0, 1572895, 0, 0, 1572896, 0, 0, 1572897, 0, 0, 1572898, 0, 0, 1572899, 0, 0, 1572900, 0, 0, 1572901, 0, 0, 1572902, 0, 0, 1572903, 0, 0, 1572904, 0, 0, 1572905, 0, 0, 1572906, 0, 0, 1572907, 0, 0, 1572908, 0, 0, 1572909, 0, 0, 1572910, 0, 0, 1572911, 0, 0, 1572912, 0, 0, 1572913, 0, 0, 1572914, 0, 0, 1572915, 0, 0, 1572916, 0, 0, 1572917, 0, 0, 1572918, 0, 0, 1572919, 0, 0, 1572920, 0, 0, 1572921, 0, 0, 1572922, 0, 0, 1572923, 0, 0, 1572924, 0, 0, 1572925, 0, 0, 1572926, 0, 0, 1572927, 0, 0, 1572928, 0, 0, 1572929, 0, 0, 1572930, 0, 0, 1572931, 0, 0, 1572932, 0, 0, 1572933, 0, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 65, 359 )
+
+[node name="RemoteTransform2D" parent="Player" index="2"]
+remote_path = NodePath("../../Camera")
+
+[node name="Respoune" type="Position2D" parent="."]
+
+[node name="Camera" parent="." instance=ExtResource( 3 )]
+position = Vector2( 65, 359 )
+
+[node name="Toast" parent="." instance=ExtResource( 5 )]
+position = Vector2( 364, 67 )
+
+[node name="DoughnutCannon" parent="." instance=ExtResource( 6 )]
+position = Vector2( 61, 53 )
+TIME_STRIKE = 2.0
+
+[node name="DoughnutCannon3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 59, 275 )
+TIME_STRIKE = 2.0
+denay = 1.2
+
+[node name="DoughnutCannon2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 59, 179 )
+TIME_STRIKE = 2.0
+denay = 0.6
+
+[node name="Conveyors" type="Node2D" parent="."]
+
+[node name="Conveyor" parent="Conveyors" instance=ExtResource( 7 )]
+position = Vector2( 176, 376 )
+speed = -250
+
+[node name="Conveyor2" parent="Conveyors" instance=ExtResource( 7 )]
+position = Vector2( 432, 376 )
+speed = -250
+
+[node name="Conveyor3" parent="Conveyors" instance=ExtResource( 7 )]
+position = Vector2( 688, 376 )
+speed = -250
+
+[node name="Conveyor4" parent="Conveyors" instance=ExtResource( 7 )]
+position = Vector2( 944, 376 )
+speed = -250
+
+[node name="PortalPair" parent="." instance=ExtResource( 8 )]
+
+[node name="Portal" parent="PortalPair" index="0"]
+position = Vector2( 296, 19 )
+
+[node name="Portal2" parent="PortalPair" index="1"]
+position = Vector2( 989, 16 )
+
+[node name="Platform" parent="." instance=ExtResource( 9 )]
+position = Vector2( 845, 93 )
+
+[node name="KinematicBody2D" parent="Platform" index="0"]
+position = Vector2( 2, 1 )
+
+[node name="Path2D" parent="Platform" index="1"]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" parent="Platform/Path2D" index="0"]
+position = Vector2( 1, 0.519737 )
+
+[editable path="Player"]
+
+[editable path="PortalPair"]
+
+[editable path="Platform"]

@@ -9,10 +9,11 @@ func _on_Toast_body_entered(body: Node) -> void:
     var parent_node = get_parent()
     var camera = parent_node.find_node('Camera')
     set_default_limits(camera)
+    camera.smoothing_enabled = false
+    get_tree().paused = true
     var animPlayer = camera.find_node('AnimationPlayer')
     animPlayer.play("zoom")
     yield(animPlayer, "animation_finished")
-    get_tree().paused = true
     end_timer.start()
    
 

@@ -81,7 +81,7 @@ position = Vector2( 648, 106 )
 position = Vector2( 571, 430 )
 
 [node name="Conveyor" parent="." instance=ExtResource( 8 )]
-position = Vector2( 577, 759 )
+position = Vector2( 538, 759 )
 speed = 300
 
 [node name="PortalPair" parent="." instance=ExtResource( 9 )]

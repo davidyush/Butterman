@@ -1,10 +1,10 @@
 extends Node2D
 
-onready var tile_map = $TileMap
-onready var camera = $Camera
-onready var respoune = $Respoune
-onready var player = $Player 
-const CELL_SIZE = 16
+onready var tile_map: = $TileMap
+onready var camera: = $Camera
+onready var respoune: = $Respoune
+onready var player: = $Player 
+const CELL_SIZE: = 16
 
 var map_limits: Dictionary
 
@@ -16,6 +16,7 @@ func _ready() -> void:
     camera.limit_left = map_limits.left
     camera.limit_right = map_limits.right
     camera.limit_top = map_limits.top
+    camera.smoothing_enabled = true
     
 
 func get_lims(tile_map_node: TileMap) -> Dictionary:

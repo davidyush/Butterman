@@ -8,7 +8,7 @@ func set_speed(speed: int):
     current_speed = speed
 
 func _physics_process(delta):
-    var velocity: = Vector2(current_speed * delta, 0)
+    velocity = Vector2(current_speed * delta, 0)
     translate(velocity)
 
 

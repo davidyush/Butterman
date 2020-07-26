@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/Objects/TileMap/TileMap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Camera/Camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Levels/LevelTemplate.gd" type="Script" id=4]
+[ext_resource path="res://src/Toast/Toast.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Objects/Platform/PlatformVertical.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Objects/VanishingBlock/VanishingBlock.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/UI/End.tscn" type="PackedScene" id=8]
+
+[node name="Level_09" type="Node2D"]
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_vertical_guides_": [ 294.0, 326.0 ]
+}
+
+[node name="TileMap" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 0, 0, 0, 36, 0, 0, 65536, 0, 0, 65572, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131108, 0, 0, 196608, 0, 0, 196609, 0, 0, 196635, 0, 0, 196636, 0, 0, 196637, 0, 0, 196638, 0, 0, 196639, 0, 0, 196640, 0, 0, 196641, 0, 0, 196642, 0, 0, 196643, 0, 0, 196644, 0, 0, 262144, 0, 0, 262171, 0, 0, 262172, 0, 0, 262173, 0, 0, 262174, 0, 0, 262175, 0, 0, 262176, 0, 0, 262177, 0, 0, 262178, 0, 0, 262179, 0, 0, 262180, 0, 0, 327707, 0, 0, 327708, 0, 0, 393243, 0, 0, 3276800, 0, 0, 3276836, 0, 0, 3342336, 0, 0, 3342372, 0, 0, 3407872, 0, 0, 3407873, 0, 0, 3407907, 0, 0, 3407908, 0, 0, 3473408, 0, 0, 3473409, 0, 0, 3473442, 0, 0, 3473443, 0, 0, 3473444, 0, 0, 3538944, 0, 0, 3538945, 0, 0, 3538946, 0, 0, 3538977, 0, 0, 3538978, 0, 0, 3538979, 0, 0, 3538980, 0, 0, 3604480, 0, 0, 3604481, 0, 0, 3604482, 0, 0, 3604483, 0, 0, 3604512, 0, 0, 3604513, 0, 0, 3604514, 0, 0, 3604515, 0, 0, 3604516, 0, 0, 3670016, 0, 0, 3670017, 0, 0, 3670018, 0, 0, 3670019, 0, 0, 3670020, 0, 0, 3670047, 0, 0, 3670048, 0, 0, 3670049, 0, 0, 3670050, 0, 0, 3670051, 0, 0, 3670052, 0, 0, 3735552, 0, 0, 3735553, 0, 0, 3735554, 0, 0, 3735555, 0, 0, 3735556, 0, 0, 3735557, 0, 0, 3735558, 0, 0, 3735559, 0, 0, 3735560, 0, 0, 3735561, 0, 0, 3735562, 0, 0, 3735563, 0, 0, 3735564, 0, 0, 3735565, 0, 0, 3735566, 0, 0, 3735567, 0, 0, 3735568, 0, 0, 3735569, 0, 0, 3735570, 0, 0, 3735571, 0, 0, 3735572, 0, 0, 3735573, 0, 0, 3735574, 0, 0, 3735575, 0, 0, 3735576, 0, 0, 3735577, 0, 0, 3735578, 0, 0, 3735579, 0, 0, 3735580, 0, 0, 3735581, 0, 0, 3735582, 0, 0, 3735583, 0, 0, 3735584, 0, 0, 3735585, 0, 0, 3735586, 0, 0, 3735587, 0, 0, 3735588, 0, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 313, 712 )
+
+[node name="RemoteTransform2D" parent="Player" index="2"]
+remote_path = NodePath("../../Camera")
+
+[node name="Respoune" type="Position2D" parent="."]
+
+[node name="Camera" parent="." instance=ExtResource( 3 )]
+position = Vector2( 313, 712 )
+
+[node name="Toast" parent="." instance=ExtResource( 5 )]
+position = Vector2( 534, 32 )
+next_scene = ExtResource( 8 )
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="PlatformVertical" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 433, 683 )
+
+[node name="PlatformVertical2" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 196, 627 )
+delay = 0.5
+
+[node name="PlatformVertical3" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 450, 452 )
+delay = 1.0
+
+[node name="PlatformVertical4" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 178, 398 )
+delay = 1.5
+
+[node name="PlatformVertical5" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 470, 221 )
+delay = 0.5
+
+[node name="PlatformVertical6" parent="Platforms" instance=ExtResource( 6 )]
+position = Vector2( 158, 183 )
+
+[node name="Vanishes" type="Node2D" parent="."]
+
+[node name="VanishingBlock" parent="Vanishes" instance=ExtResource( 7 )]
+position = Vector2( 310, 656 )
+
+[node name="VanishingBlock3" parent="Vanishes" instance=ExtResource( 7 )]
+position = Vector2( 310, 445 )
+
+[node name="VanishingBlock5" parent="Vanishes" instance=ExtResource( 7 )]
+position = Vector2( 310, 301 )
+
+[node name="VanishingBlock7" parent="Vanishes" instance=ExtResource( 7 )]
+position = Vector2( 310, 168 )
+
+[editable path="Player"]

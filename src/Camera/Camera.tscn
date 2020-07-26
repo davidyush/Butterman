@@ -10,9 +10,9 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"transitions": PoolRealArray( 1, -2 ),
 "update": 0,
-"values": [ Vector2( 2, 2 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 0.5, 0.5 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:limit_left")
@@ -67,7 +67,6 @@ tracks/4/keys = {
 pause_mode = 2
 position = Vector2( 301, 479 )
 current = true
-zoom = Vector2( 2.35, 2.35 )
 limit_smoothed = true
 smoothing_enabled = true
 

@@ -3,7 +3,7 @@ extends KinematicBody2D
 onready var PlayerExplosion = preload("res://src/Player/PlayerExplosion.tscn")
 
 #todo -> full refactor with pure functions
-
+#pomoyka
 export (int) var ACCELERATION = 2000
 export (int) var MAX_SPEED = 250
 export (float) var FRICTION = 0.15
@@ -33,6 +33,9 @@ func _physics_process(delta: float) -> void:
     
     if can_control:
         apply_speed_up()
+        var wall_ax = get_wall_axis()
+        if not is_on_floor() and (wall_ax == 1 or wall_ax == -1):
+            state = WALL_SLIDE
         match state:
             MOVE:
                 label.text = 'M'
@@ -188,7 +191,7 @@ func wall_detach(delta, wall_axis):
     if wall_axis == 0 or is_on_floor():
         state = MOVE
 
-
+#this method is looks like shit
 func die():
     print('player is dead')
     var player_exlosion = PlayerExplosion.instance()

@@ -1,6 +1,7 @@
 extends Node2D
 
-onready var tile_map: = $TileMap
+onready var tile_map_simple = $TileMap
+onready var tile_map_grass = $TileMapGrass
 onready var camera: = $Camera
 onready var respoune: = $Respoune
 onready var player: = $Player 
@@ -9,9 +10,13 @@ const CELL_SIZE: = 16
 var map_limits: Dictionary
 
 func _ready() -> void:
+    VisualServer.set_default_clear_color(Color.darksalmon)
     get_tree().paused = false
     respoune.global_position = player.global_position
-    map_limits = get_lims(tile_map)
+    if tile_map_grass:
+        map_limits = get_lims(tile_map_grass)
+    else:
+        map_limits = get_lims(tile_map_simple)
     camera.limit_bottom = map_limits.bottom
     camera.limit_left = map_limits.left
     camera.limit_right = map_limits.right
@@ -30,6 +35,8 @@ func get_lims(tile_map_node: TileMap) -> Dictionary:
         'right': tile_size.x
        }
 
+
 func _physics_process(delta: float) -> void:
-    if player.global_position.y > map_limits.bottom * 1.5:
+    if player.global_position.y > map_limits.bottom * 1.1:
         player.die()
+    

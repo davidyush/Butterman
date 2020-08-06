@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/Objects/TileMap/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://src/Objects/VanishingBlock/VanishingBlock.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Toast/Toast.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Levels/Level_05.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/UI/LevelUI.tscn" type="PackedScene" id=9]
 
 [node name="Level_04" type="Node2D"]
 script = ExtResource( 4 )
@@ -104,5 +105,7 @@ position = Vector2( 81, 99 )
 [node name="Toast" parent="." instance=ExtResource( 7 )]
 position = Vector2( 527, 67 )
 next_scene = ExtResource( 8 )
+
+[node name="LevelUI" parent="." instance=ExtResource( 9 )]
 
 [editable path="Player"]

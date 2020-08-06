@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://src/Objects/TileMap/TileMap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/UI/LevelUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/Camera/Camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/Levels/LevelTemplate.gd" type="Script" id=4]
 [ext_resource path="res://src/Toast/Toast.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Objects/Platform/PlatformVertical.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Objects/VanishingBlock/VanishingBlock.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/UI/End.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Levels/Level_10.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Objects/TileMap/TileMapGrass.tscn" type="PackedScene" id=9]
 
 [node name="Level_09" type="Node2D"]
 script = ExtResource( 4 )
@@ -15,8 +16,8 @@ __meta__ = {
 "_edit_vertical_guides_": [ 294.0, 326.0 ]
 }
 
-[node name="TileMap" parent="." instance=ExtResource( 1 )]
-tile_data = PoolIntArray( 0, 0, 0, 36, 0, 0, 65536, 0, 0, 65572, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131108, 0, 0, 196608, 0, 0, 196609, 0, 0, 196635, 0, 0, 196636, 0, 0, 196637, 0, 0, 196638, 0, 0, 196639, 0, 0, 196640, 0, 0, 196641, 0, 0, 196642, 0, 0, 196643, 0, 0, 196644, 0, 0, 262144, 0, 0, 262171, 0, 0, 262172, 0, 0, 262173, 0, 0, 262174, 0, 0, 262175, 0, 0, 262176, 0, 0, 262177, 0, 0, 262178, 0, 0, 262179, 0, 0, 262180, 0, 0, 327707, 0, 0, 327708, 0, 0, 393243, 0, 0, 3276800, 0, 0, 3276836, 0, 0, 3342336, 0, 0, 3342372, 0, 0, 3407872, 0, 0, 3407873, 0, 0, 3407907, 0, 0, 3407908, 0, 0, 3473408, 0, 0, 3473409, 0, 0, 3473442, 0, 0, 3473443, 0, 0, 3473444, 0, 0, 3538944, 0, 0, 3538945, 0, 0, 3538946, 0, 0, 3538977, 0, 0, 3538978, 0, 0, 3538979, 0, 0, 3538980, 0, 0, 3604480, 0, 0, 3604481, 0, 0, 3604482, 0, 0, 3604483, 0, 0, 3604512, 0, 0, 3604513, 0, 0, 3604514, 0, 0, 3604515, 0, 0, 3604516, 0, 0, 3670016, 0, 0, 3670017, 0, 0, 3670018, 0, 0, 3670019, 0, 0, 3670020, 0, 0, 3670047, 0, 0, 3670048, 0, 0, 3670049, 0, 0, 3670050, 0, 0, 3670051, 0, 0, 3670052, 0, 0, 3735552, 0, 0, 3735553, 0, 0, 3735554, 0, 0, 3735555, 0, 0, 3735556, 0, 0, 3735557, 0, 0, 3735558, 0, 0, 3735559, 0, 0, 3735560, 0, 0, 3735561, 0, 0, 3735562, 0, 0, 3735563, 0, 0, 3735564, 0, 0, 3735565, 0, 0, 3735566, 0, 0, 3735567, 0, 0, 3735568, 0, 0, 3735569, 0, 0, 3735570, 0, 0, 3735571, 0, 0, 3735572, 0, 0, 3735573, 0, 0, 3735574, 0, 0, 3735575, 0, 0, 3735576, 0, 0, 3735577, 0, 0, 3735578, 0, 0, 3735579, 0, 0, 3735580, 0, 0, 3735581, 0, 0, 3735582, 0, 0, 3735583, 0, 0, 3735584, 0, 0, 3735585, 0, 0, 3735586, 0, 0, 3735587, 0, 0, 3735588, 0, 0 )
+[node name="TileMapGrass" parent="." instance=ExtResource( 9 )]
+tile_data = PoolIntArray( 0, 536870915, 0, 36, 536870915, 0, 65536, 536870918, 0, 65572, 536870918, 0, 131072, 536870927, 0, 131073, 536870913, 0, 131074, 536870931, 0, 131108, 536870918, 0, 196608, 536870919, 0, 196609, 536870922, 0, 196635, 536870914, 0, 196636, 536870913, 0, 196637, 536870913, 0, 196638, 536870913, 0, 196639, 536870913, 0, 196640, 536870913, 0, 196641, 536870913, 0, 196642, 536870913, 0, 196643, 536870913, 0, 196644, 15, 0, 262144, 536870918, 0, 262171, 9, 0, 262172, 8, 0, 262173, 11, 0, 262174, 11, 0, 262175, 11, 0, 262176, 11, 0, 262177, 11, 0, 262178, 11, 0, 262179, 11, 0, 262180, 536870922, 0, 327680, 536870918, 0, 327707, 9, 0, 327708, 12, 0, 393216, 536870925, 0, 393243, 536870925, 0, 3276800, 536870915, 0, 3276836, 536870915, 0, 3342336, 536870918, 0, 3342372, 536870918, 0, 3407872, 536870927, 0, 3407873, 2, 0, 3407907, 0, 0, 3407908, 15, 0, 3473408, 536870919, 0, 3473409, 536870921, 0, 3473442, 0, 0, 3473443, 4, 0, 3473444, 536870921, 0, 3538944, 536870919, 0, 3538945, 536870916, 0, 3538946, 2, 0, 3538977, 0, 0, 3538978, 4, 0, 3538979, 536870920, 0, 3538980, 536870921, 0, 3604480, 536870919, 0, 3604481, 536870920, 0, 3604482, 536870916, 0, 3604483, 2, 0, 3604512, 0, 0, 3604513, 4, 0, 3604514, 536870920, 0, 3604515, 536870920, 0, 3604516, 536870921, 0, 3670016, 536870919, 0, 3670017, 536870920, 0, 3670018, 536870920, 0, 3670019, 536870916, 0, 3670020, 2, 0, 3670047, 0, 0, 3670048, 4, 0, 3670049, 536870920, 0, 3670050, 536870920, 0, 3670051, 536870920, 0, 3670052, 536870921, 0, 3735552, 536870919, 0, 3735553, 536870920, 0, 3735554, 536870920, 0, 3735555, 536870920, 0, 3735556, 536870916, 0, 3735557, 1, 0, 3735558, 1, 0, 3735559, 1, 0, 3735560, 1, 0, 3735561, 1, 0, 3735562, 1, 0, 3735563, 1, 0, 3735564, 1, 0, 3735565, 1, 0, 3735566, 1, 0, 3735567, 1, 0, 3735568, 1, 0, 3735569, 1, 0, 3735570, 1, 0, 3735571, 1, 0, 3735572, 1, 0, 3735573, 1, 0, 3735574, 1, 0, 3735575, 1, 0, 3735576, 1, 0, 3735577, 1, 0, 3735578, 1, 0, 3735579, 1, 0, 3735580, 1, 0, 3735581, 1, 0, 3735582, 1, 0, 3735583, 4, 0, 3735584, 536870920, 0, 3735585, 536870920, 0, 3735586, 536870920, 0, 3735587, 536870920, 0, 3735588, 536870921, 0, 3801088, 536870924, 0, 3801089, 536870923, 0, 3801090, 536870923, 0, 3801091, 536870923, 0, 3801092, 536870923, 0, 3801093, 536870923, 0, 3801094, 536870923, 0, 3801095, 536870923, 0, 3801096, 536870923, 0, 3801097, 536870923, 0, 3801098, 536870923, 0, 3801099, 536870923, 0, 3801100, 536870923, 0, 3801101, 536870923, 0, 3801102, 536870923, 0, 3801103, 536870923, 0, 3801104, 536870923, 0, 3801105, 536870923, 0, 3801106, 536870923, 0, 3801107, 536870923, 0, 3801108, 536870923, 0, 3801109, 536870923, 0, 3801110, 536870923, 0, 3801111, 536870923, 0, 3801112, 536870923, 0, 3801113, 536870923, 0, 3801114, 536870923, 0, 3801115, 536870923, 0, 3801116, 536870923, 0, 3801117, 536870923, 0, 3801118, 536870923, 0, 3801119, 536870923, 0, 3801120, 536870923, 0, 3801121, 536870923, 0, 3801122, 536870923, 0, 3801123, 536870923, 0, 3801124, 536870922, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 313, 712 )
@@ -30,7 +31,7 @@ remote_path = NodePath("../../Camera")
 position = Vector2( 313, 712 )
 
 [node name="Toast" parent="." instance=ExtResource( 5 )]
-position = Vector2( 534, 32 )
+position = Vector2( 535, 37 )
 next_scene = ExtResource( 8 )
 
 [node name="Platforms" type="Node2D" parent="."]
@@ -40,7 +41,6 @@ position = Vector2( 433, 683 )
 
 [node name="PlatformVertical2" parent="Platforms" instance=ExtResource( 6 )]
 position = Vector2( 196, 627 )
-delay = 0.5
 
 [node name="PlatformVertical3" parent="Platforms" instance=ExtResource( 6 )]
 position = Vector2( 450, 452 )
@@ -48,27 +48,39 @@ delay = 1.0
 
 [node name="PlatformVertical4" parent="Platforms" instance=ExtResource( 6 )]
 position = Vector2( 178, 398 )
-delay = 1.5
+delay = 1.0
 
 [node name="PlatformVertical5" parent="Platforms" instance=ExtResource( 6 )]
 position = Vector2( 470, 221 )
-delay = 0.5
+delay = 2.0
 
 [node name="PlatformVertical6" parent="Platforms" instance=ExtResource( 6 )]
 position = Vector2( 158, 183 )
+delay = 2.0
 
 [node name="Vanishes" type="Node2D" parent="."]
 
 [node name="VanishingBlock" parent="Vanishes" instance=ExtResource( 7 )]
-position = Vector2( 310, 656 )
+position = Vector2( 310, 637 )
 
 [node name="VanishingBlock3" parent="Vanishes" instance=ExtResource( 7 )]
 position = Vector2( 310, 445 )
 
+[node name="VanishingBlock4" parent="Vanishes" instance=ExtResource( 7 )]
+position = Vector2( 310, 538 )
+
 [node name="VanishingBlock5" parent="Vanishes" instance=ExtResource( 7 )]
 position = Vector2( 310, 301 )
 
+[node name="VanishingBlock6" parent="Vanishes" instance=ExtResource( 7 )]
+position = Vector2( 310, 376 )
+
 [node name="VanishingBlock7" parent="Vanishes" instance=ExtResource( 7 )]
 position = Vector2( 310, 168 )
+
+[node name="VanishingBlock8" parent="Vanishes" instance=ExtResource( 7 )]
+position = Vector2( 310, 232 )
+
+[node name="LevelUI" parent="." instance=ExtResource( 1 )]
 
 [editable path="Player"]

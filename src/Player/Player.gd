@@ -27,6 +27,15 @@ var can_control = true
 
 onready var label = $Label
 onready var sprite = $Sprite
+onready var ray_cast_left = $RayCastLeft
+onready var ray_cast_right = $RayCastRight
+onready var cayote_timer = $CayoteTimer
+
+func set_friction(value: float) -> void:
+    FRICTION = value
+
+func set_gravity(value: int) -> void:
+    GRAVITY = value
 
 func _physics_process(delta: float) -> void:
     just_jumped = false
@@ -36,6 +45,8 @@ func _physics_process(delta: float) -> void:
         var wall_ax = get_wall_axis()
         if not is_on_floor() and (wall_ax == 1 or wall_ax == -1):
             state = WALL_SLIDE
+        if not is_on_floor() and (check_valid_wall(ray_cast_left) or check_valid_wall(ray_cast_right)):
+            state = WALL_SLIDE 
         match state:
             MOVE:
                 label.text = 'M'
@@ -90,12 +101,12 @@ func update_snap_vector():
         snap_vector = Vector2.DOWN
         
 func jump_check():
-    if is_on_floor():
-        if Input.is_action_just_pressed("jump"):
+    if is_on_floor() or cayote_timer.time_left > 0:
+        if Input.is_action_just_pressed("jump") or Input.is_joy_button_pressed(0, JOY_XBOX_A):
             jump(JUMP_FORCE)
             just_jumped = true
     else:
-        if Input.is_action_just_released("jump") and motion.y < 0:
+        if (Input.is_action_just_released("jump") or Input.is_joy_button_pressed(0, JOY_XBOX_A)) and motion.y < 0:
             motion.y = 0.0
             
 func jump(force):
@@ -109,7 +120,6 @@ func apply_gravity(delta):
         motion.y = min(motion.y, JUMP_FORCE)
 
 
-        
 func move():
     var was_on_air = not is_on_floor()
     var was_on_floor = is_on_floor()
@@ -131,6 +141,7 @@ func move():
     if was_on_floor and not is_on_floor() and not just_jumped:
         motion.y = 0
         position.y = last_position.y
+        cayote_timer.start()
         
     #Prevent 
     if is_on_floor() and get_floor_velocity().length() == 0 and abs(motion.x) < 1:
@@ -155,7 +166,7 @@ func wall_slide_jump_check(wall_axis):
     # 2. jump + move_left + [shift] = small jump to wall
     #wall_axis = 1 wall is left
     #wall_axis = -1 walls is right
-    if Input.is_action_just_pressed("jump"):
+    if Input.is_action_just_pressed("jump") or Input.is_joy_button_pressed(0, JOY_XBOX_A):
         var left_dir = wall_axis > 0 and Input.is_action_pressed("move_left")
         var right_dir = wall_axis < 0 and Input.is_action_pressed("move_right")
         var left_wall_jump = wall_axis > 0 and Input.is_action_pressed("move_right")
@@ -165,7 +176,8 @@ func wall_slide_jump_check(wall_axis):
             motion.y = -JUMP_FORCE * 1.1
             state = MOVE
         elif left_wall_jump or right_wall_jump:
-            motion.x = wall_axis * MAX_SPEED
+            print('here')
+            motion.x = wall_axis * MAX_SPEED * 2
             motion.y = -JUMP_FORCE
             state = MOVE
         else:
@@ -190,6 +202,14 @@ func wall_detach(delta, wall_axis):
         
     if wall_axis == 0 or is_on_floor():
         state = MOVE
+
+func check_valid_wall(wall_raycast):
+    if wall_raycast.is_colliding():
+        var dot = acos(Vector2.UP.dot(wall_raycast.get_collision_normal()))
+        if dot > PI * 0.35 && dot < PI * 0.55:
+            return true
+    return false
+
 
 #this method is looks like shit
 func die():

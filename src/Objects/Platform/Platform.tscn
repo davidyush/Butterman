@@ -1,16 +1,12 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/Objects/plarform.png" type="Texture" id=1]
+[ext_resource path="res://src/Objects/Platform/Platform.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 2 )
 
-[sub_resource type="Curve2D" id=2]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 79 )
-}
-
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "init"
 length = 2.0
 loop = true
@@ -28,6 +24,7 @@ tracks/0/keys = {
 }
 
 [node name="Platform" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 position = Vector2( 1, 0 )
@@ -48,7 +45,6 @@ shape = SubResource( 1 )
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2( 1, 0 )
 scale = Vector2( 1, 1.92405 )
-curve = SubResource( 2 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 rotate = false
@@ -58,6 +54,5 @@ loop = false
 remote_path = NodePath("../../../KinematicBody2D")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "init"
 playback_speed = 0.5
-anims/init = SubResource( 3 )
+anims/init = SubResource( 2 )

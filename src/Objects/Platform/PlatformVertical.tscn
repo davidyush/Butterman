@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13, 2 )
 
-[sub_resource type="Curve2D" id=4]
+[sub_resource type="Curve2D" id=2]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 99, 0, 0, 0, 0, 0, 100, 0, 0, 0, 0, 0, 110 )
 }
@@ -29,11 +29,13 @@ tracks/0/keys = {
 }
 
 [node name="PlatformVertical" type="Node2D"]
+scale = Vector2( 1.5, 1.2 )
 script = ExtResource( 2 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 position = Vector2( 1, 0 )
 rotation = 1.5708
+scale = Vector2( 1, 1 )
 collision_layer = 2
 collision_mask = 0
 motion/sync_to_physics = true
@@ -49,7 +51,7 @@ shape = SubResource( 1 )
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2( 1, 0 )
-curve = SubResource( 4 )
+curve = SubResource( 2 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 rotation = 1.5708

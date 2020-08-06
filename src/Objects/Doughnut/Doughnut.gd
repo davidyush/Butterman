@@ -1,14 +1,21 @@
 extends Area2D
 
-var velocity: Vector2 = Vector2.ZERO
+var velocity := Vector2.ZERO
+var direction := Vector2.ZERO
 
-var current_speed: = 300
+var current_speed := 300
 
-func set_speed(speed: int):
+func set_speed(speed: int) -> void:
     current_speed = speed
 
+func set_direction(dir: Vector2) -> void:
+    direction = dir
+
 func _physics_process(delta):
-    velocity = Vector2(current_speed * delta, 0)
+    velocity = Vector2(
+        current_speed * delta * sign(direction.x),
+        current_speed * delta * sign(direction.y)
+    )
     translate(velocity)
 
 

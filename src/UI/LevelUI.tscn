@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/font/MainFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/UI/LevelUI.gd" type="Script" id=2]
+
+[node name="LevelUI" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelTimer" type="Label" parent="Control"]
+margin_left = 30.0
+margin_right = 126.0
+margin_bottom = 52.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "0.00
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelTimer" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]

@@ -1,0 +1,98 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/Objects/wing.png" type="Texture" id=1]
+[ext_resource path="res://assets/Objects/dough_1.png" type="Texture" id=2]
+[ext_resource path="res://src/Enemies/FlyingDoughnut/FlyingDoughnut.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 16.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Dougnut:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 4 ), Vector2( 0, 0 ), Vector2( 0, -4 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Dougnut/WingRight:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 75.0, 0.0, -30.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Dougnut/WingLeft:rotation_degrees")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -75.0, 0.0, 30.0, 0.0 ]
+}
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 18.5068
+
+[node name="FlyingDoughnut" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource( 3 )
+
+[node name="Dougnut" type="Sprite" parent="."]
+position = Vector2( 0, 0.580103 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, 1 )
+
+[node name="WingRight" type="Sprite" parent="Dougnut"]
+show_behind_parent = true
+position = Vector2( 12, -13 )
+rotation = 0.628537
+texture = ExtResource( 1 )
+offset = Vector2( -14, 22 )
+
+[node name="WingLeft" type="Sprite" parent="Dougnut"]
+show_behind_parent = true
+position = Vector2( -11.1153, -13.0744 )
+rotation = -0.628537
+scale = Vector2( -1, 1 )
+texture = ExtResource( 1 )
+offset = Vector2( -13.1153, 22.0744 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 1, 0.500001 )
+scale = Vector2( 1.6, 1.65 )
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 0.5, -1.5 )
+shape = SubResource( 3 )
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]

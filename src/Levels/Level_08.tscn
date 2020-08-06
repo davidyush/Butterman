@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/Objects/TileMap/TileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://src/Objects/Portal/PortalPair.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/Objects/Platform/Platform.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/Levels/Level_09.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/UI/LevelUI.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -80,16 +81,21 @@ position = Vector2( 1, 0.519737 )
 [node name="DoughnutCannon" parent="Cannons" instance=ExtResource( 6 )]
 position = Vector2( 61, 53 )
 TIME_STRIKE = 2.0
+DIRECTION = Vector2( 1, 0 )
 
 [node name="DoughnutCannon3" parent="Cannons" instance=ExtResource( 6 )]
 position = Vector2( 59, 275 )
 TIME_STRIKE = 2.0
 denay = 1.2
+DIRECTION = Vector2( 1, 0 )
 
 [node name="DoughnutCannon2" parent="Cannons" instance=ExtResource( 6 )]
 position = Vector2( 59, 179 )
 TIME_STRIKE = 2.0
 denay = 0.6
+DIRECTION = Vector2( 1, 0 )
+
+[node name="LevelUI" parent="." instance=ExtResource( 11 )]
 
 [editable path="Player"]
 

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/Objects/DoughnutCannon/DoughnutCannon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Objects/Platform/Platform.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -1, 0.519737, 0, 0, 0, 0, 222, 1.03947 )
+}
+
+[node name="CannonPlatform" type="Node2D"]
+
+[node name="Platform" parent="." instance=ExtResource( 2 )]
+
+[node name="KinematicBody2D" parent="Platform" index="0"]
+position = Vector2( 0, 1 )
+skew = 4.37114e-08
+
+[node name="DoughnutCannon" parent="Platform/KinematicBody2D" index="2" instance=ExtResource( 1 )]
+position = Vector2( -1, 25.9869 )
+rotation = 1.5708
+scale = Vector2( 0.519737, 1 )
+TIME_STRIKE = 1.0
+
+[node name="Path2D" parent="Platform" index="1"]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" parent="Platform/Path2D" index="0"]
+position = Vector2( -1, 0.519737 )
+
+[editable path="Platform"]

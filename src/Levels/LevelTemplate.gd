@@ -5,8 +5,9 @@ onready var tile_map_grass = $TileMapGrass
 onready var camera: = $Camera
 onready var respoune: = $Respoune
 onready var player: = $Player 
-const CELL_SIZE: = 16
 
+const CELL_SIZE: = 16
+var time_passed: = 0.0
 var map_limits: Dictionary
 
 func _ready() -> void:

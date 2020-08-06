@@ -6,16 +6,17 @@ onready var end_timer = $EndTimer
 
 # warning-ignore:unused_argument
 func _on_Toast_body_entered(body: Node) -> void:
-    var parent_node = get_parent()
-    var camera = parent_node.find_node('Camera')
-    set_default_limits(camera)
-    camera.smoothing_enabled = false
-    get_tree().paused = true
-    var animPlayer = camera.find_node('AnimationPlayer')
-    animPlayer.play("zoom")
-    yield(animPlayer, "animation_finished")
-    end_timer.start()
-   
+    if body.name == 'Player':
+        var parent_node = get_parent()
+        var camera = parent_node.find_node('Camera')
+        set_default_limits(camera)
+        camera.smoothing_enabled = false
+        get_tree().paused = true
+        var animPlayer = camera.find_node('AnimationPlayer')
+        animPlayer.play("zoom")
+        yield(animPlayer, "animation_finished")
+        end_timer.start()
+
 
 func set_default_limits(camera: Camera2D):
     camera.limit_bottom = 9999

@@ -1,0 +1,317 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://src/Objects/DoughnutCannon/DoughnutCannon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Camera/Camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Levels/LevelTemplate.gd" type="Script" id=4]
+[ext_resource path="res://src/Toast/Toast.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Objects/TileMap/TileMapGrass.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Objects/CannonPlatform/CannonPlatform.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Objects/Platform/Platform.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Objects/DoughnutMachine/DoughnutMachine.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/Objects/VanishingBlock/VanishingBlock.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/Objects/DoughnutRotate/DoughnutRotate.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/UI/LevelUI.tscn" type="PackedScene" id=12]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1, 0.519745, 0, 0, 0, 0, -1, -119.02 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "init"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( -1, -1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "init"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( -1, -1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0.51973, 0, 0, 0, 0, -2, 124.737 )
+}
+
+[sub_resource type="Animation" id=5]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( -1, -1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "init"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( -1, -1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( -1, -1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[node name="LevelTemplate" type="Node2D"]
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 745.0, 877.0, 1118.0 ],
+"_edit_vertical_guides_": [ 483.0, 659.0 ]
+}
+
+[node name="TileMapGrass" parent="." instance=ExtResource( 6 )]
+tile_data = PoolIntArray( 0, 8, 0, 1, 8, 0, 2, 8, 0, 3, 8, 0, 4, 8, 0, 5, 8, 0, 6, 8, 0, 7, 8, 0, 8, 8, 0, 9, 8, 0, 10, 8, 0, 11, 8, 0, 12, 8, 0, 13, 8, 0, 14, 8, 0, 15, 8, 0, 16, 8, 0, 17, 8, 0, 18, 8, 0, 19, 8, 0, 20, 8, 0, 21, 8, 0, 22, 8, 0, 23, 8, 0, 24, 8, 0, 25, 8, 0, 26, 8, 0, 27, 8, 0, 28, 8, 0, 29, 8, 0, 30, 8, 0, 31, 8, 0, 32, 8, 0, 33, 8, 0, 34, 8, 0, 35, 8, 0, 36, 8, 0, 37, 8, 0, 38, 8, 0, 39, 8, 0, 40, 8, 0, 41, 8, 0, 42, 8, 0, 43, 8, 0, 44, 8, 0, 45, 8, 0, 46, 8, 0, 47, 8, 0, 48, 8, 0, 49, 8, 0, 50, 8, 0, 51, 8, 0, 52, 8, 0, 53, 8, 0, 54, 8, 0, 55, 8, 0, 56, 8, 0, 57, 8, 0, 58, 8, 0, 59, 8, 0, 60, 8, 0, 61, 8, 0, 62, 8, 0, 63, 8, 0, 64, 8, 0, 65, 8, 0, 66, 8, 0, 67, 8, 0, 68, 8, 0, 69, 8, 0, 70, 8, 0, 71, 8, 0, 72, 8, 0, 73, 8, 0, 74, 8, 0, 75, 8, 0, 76, 8, 0, 77, 8, 0, 78, 8, 0, 79, 8, 0, 80, 8, 0, 81, 8, 0, 82, 8, 0, 83, 8, 0, 84, 8, 0, 85, 8, 0, 86, 8, 0, 87, 8, 0, 88, 8, 0, 89, 8, 0, 90, 8, 0, 91, 8, 0, 92, 8, 0, 93, 8, 0, 94, 8, 0, 95, 8, 0, 96, 8, 0, 97, 8, 0, 98, 8, 0, 99, 8, 0, 100, 8, 0, 101, 8, 0, 102, 8, 0, 103, 8, 0, 104, 8, 0, 105, 8, 0, 106, 8, 0, 65536, 8, 0, 65641, 8, 0, 65642, 8, 0, 131072, 8, 0, 131177, 8, 0, 131178, 8, 0, 196608, 8, 0, 196713, 8, 0, 196714, 8, 0, 262144, 8, 0, 262249, 8, 0, 262250, 8, 0, 327680, 8, 0, 327785, 8, 0, 327786, 8, 0, 393216, 8, 0, 393321, 8, 0, 393322, 8, 0, 458752, 8, 0, 458857, 8, 0, 458858, 8, 0, 524288, 8, 0, 524393, 8, 0, 524394, 8, 0, 589824, 8, 0, 589929, 8, 0, 589930, 8, 0, 655360, 8, 0, 655465, 8, 0, 655466, 8, 0, 720896, 8, 0, 721001, 8, 0, 721002, 8, 0, 786432, 8, 0, 786537, 8, 0, 786538, 8, 0, 851968, 8, 0, 852073, 8, 0, 852074, 8, 0, 917504, 8, 0, 917609, 8, 0, 917610, 8, 0, 983040, 8, 0, 983145, 8, 0, 983146, 8, 0, 1048576, 8, 0, 1048681, 8, 0, 1048682, 8, 0, 1114112, 8, 0, 1114203, 8, 0, 1114204, 8, 0, 1114205, 8, 0, 1114206, 8, 0, 1114217, 8, 0, 1114218, 8, 0, 1179648, 8, 0, 1179739, 8, 0, 1179740, 8, 0, 1179741, 8, 0, 1179742, 8, 0, 1179753, 8, 0, 1179754, 8, 0, 1245184, 8, 0, 1245275, 8, 0, 1245276, 8, 0, 1245277, 8, 0, 1245278, 8, 0, 1245289, 8, 0, 1245290, 8, 0, 1310720, 8, 0, 1310811, 8, 0, 1310812, 8, 0, 1310813, 8, 0, 1310814, 8, 0, 1310825, 8, 0, 1310826, 8, 0, 1376256, 8, 0, 1376361, 8, 0, 1376362, 8, 0, 1441792, 8, 0, 1441897, 8, 0, 1441898, 8, 0, 1507328, 8, 0, 1507433, 8, 0, 1507434, 8, 0, 1572864, 8, 0, 1572969, 8, 0, 1572970, 8, 0, 1638400, 8, 0, 1638401, 8, 0, 1638402, 8, 0, 1638403, 8, 0, 1638404, 8, 0, 1638405, 8, 0, 1638406, 8, 0, 1638407, 8, 0, 1638408, 8, 0, 1638409, 8, 0, 1638410, 8, 0, 1638411, 8, 0, 1638412, 8, 0, 1638413, 8, 0, 1638414, 8, 0, 1638505, 8, 0, 1638506, 8, 0, 1703936, 8, 0, 1703937, 8, 0, 1703938, 8, 0, 1703939, 8, 0, 1703940, 8, 0, 1703941, 8, 0, 1703942, 8, 0, 1703943, 8, 0, 1703944, 8, 0, 1703945, 8, 0, 1703946, 8, 0, 1703947, 8, 0, 1703948, 8, 0, 1703949, 8, 0, 1703950, 8, 0, 1704041, 8, 0, 1704042, 8, 0, 1769472, 8, 0, 1769473, 8, 0, 1769474, 8, 0, 1769475, 8, 0, 1769476, 8, 0, 1769477, 8, 0, 1769478, 8, 0, 1769479, 8, 0, 1769480, 8, 0, 1769481, 8, 0, 1769482, 8, 0, 1769483, 8, 0, 1769484, 8, 0, 1769577, 8, 0, 1769578, 8, 0, 1835008, 8, 0, 1835009, 8, 0, 1835010, 8, 0, 1835011, 8, 0, 1835012, 8, 0, 1835013, 8, 0, 1835014, 8, 0, 1835015, 8, 0, 1835016, 8, 0, 1835017, 8, 0, 1835018, 8, 0, 1835113, 8, 0, 1835114, 8, 0, 1900544, 8, 0, 1900545, 8, 0, 1900546, 8, 0, 1900547, 8, 0, 1900548, 8, 0, 1900549, 8, 0, 1900550, 8, 0, 1900551, 8, 0, 1900649, 8, 0, 1900650, 8, 0, 1966080, 8, 0, 1966081, 8, 0, 1966082, 8, 0, 1966083, 8, 0, 1966084, 8, 0, 1966085, 8, 0, 1966185, 8, 0, 1966186, 8, 0, 2031616, 8, 0, 2031617, 8, 0, 2031618, 8, 0, 2031619, 8, 0, 2031721, 8, 0, 2031722, 8, 0, 2097152, 8, 0, 2097153, 8, 0, 2097154, 8, 0, 2097257, 8, 0, 2097258, 8, 0, 2162688, 8, 0, 2162793, 8, 0, 2162794, 8, 0, 2228224, 8, 0, 2228329, 8, 0, 2228330, 8, 0, 2293760, 8, 0, 2293865, 8, 0, 2293866, 8, 0, 2359296, 8, 0, 2359401, 8, 0, 2359402, 8, 0, 2424832, 8, 0, 2424937, 8, 0, 2424938, 8, 0, 2490368, 8, 0, 2490473, 8, 0, 2490474, 8, 0, 2556009, 8, 0, 2556010, 8, 0, 2621545, 8, 0, 2621546, 8, 0, 2687081, 8, 0, 2687082, 8, 0, 2752617, 8, 0, 2752618, 8, 0, 2818153, 8, 0, 2818154, 8, 0, 2883689, 8, 0, 2883690, 8, 0, 2949225, 8, 0, 2949226, 8, 0, 3014761, 8, 0, 3014762, 8, 0, 3080297, 8, 0, 3080298, 8, 0, 3145833, 8, 0, 3145834, 8, 0, 3211369, 8, 0, 3211370, 8, 0, 3276905, 8, 0, 3276906, 8, 0, 3342441, 8, 0, 3342442, 8, 0, 3407977, 8, 0, 3407978, 8, 0, 3473513, 8, 0, 3473514, 8, 0, 3539049, 8, 0, 3539050, 8, 0, 3604585, 8, 0, 3604586, 8, 0, 3670121, 8, 0, 3670122, 8, 0, 3735657, 8, 0, 3735658, 8, 0, 3801193, 8, 0, 3801194, 8, 0, 3866725, 8, 0, 3866726, 8, 0, 3866727, 8, 0, 3866728, 8, 0, 3866729, 8, 0, 3866730, 8, 0, 3932262, 8, 0, 3932263, 8, 0, 3932264, 8, 0, 3932265, 8, 0, 3932266, 8, 0, 3997799, 8, 0, 3997800, 8, 0, 3997801, 8, 0, 3997802, 8, 0, 4063336, 8, 0, 4063337, 8, 0, 4063338, 8, 0, 4128873, 8, 0, 4128874, 8, 0, 4194409, 8, 0, 4194410, 8, 0, 4259945, 8, 0, 4259946, 8, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 99, 391 )
+
+[node name="RemoteTransform2D" parent="Player" index="2"]
+remote_path = NodePath("../../Camera")
+
+[node name="Respoune" type="Position2D" parent="."]
+
+[node name="Camera" parent="." instance=ExtResource( 3 )]
+position = Vector2( 99, 391 )
+
+[node name="Toast" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1491, 259 )
+
+[node name="Cannons" type="Node2D" parent="."]
+
+[node name="DoughnutCannon" parent="Cannons" instance=ExtResource( 1 )]
+position = Vector2( 283, 415 )
+DIRECTION = Vector2( 1, 0 )
+
+[node name="DoughnutCannon2" parent="Cannons" instance=ExtResource( 1 )]
+position = Vector2( 1669, 567 )
+rotation = 3.14159
+DIRECTION = Vector2( -1, 0 )
+
+[node name="CannonPlatform" parent="Cannons" instance=ExtResource( 7 )]
+position = Vector2( 316, 23 )
+
+[node name="CannonPlatform2" parent="Cannons" instance=ExtResource( 7 )]
+position = Vector2( 762, 23 )
+
+[node name="CannonPlatform3" parent="Cannons" instance=ExtResource( 7 )]
+position = Vector2( 1195, 23 )
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Platform" parent="Platforms" instance=ExtResource( 8 )]
+position = Vector2( 483, 449 )
+
+[node name="KinematicBody2D" parent="Platforms/Platform" index="0"]
+position = Vector2( 2, 1.00003 )
+
+[node name="Path2D" parent="Platforms/Platform" index="1"]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" parent="Platforms/Platform/Path2D" index="0"]
+position = Vector2( 1, 0.519745 )
+
+[node name="Platform3" parent="Platforms" instance=ExtResource( 8 )]
+position = Vector2( 843, 682 )
+
+[node name="KinematicBody2D" parent="Platforms/Platform3" index="0"]
+position = Vector2( 2, 1 )
+
+[node name="Path2D" parent="Platforms/Platform3" index="1"]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" parent="Platforms/Platform3/Path2D" index="0"]
+position = Vector2( 1, 0.519745 )
+
+[node name="AnimationPlayer" parent="Platforms/Platform3" index="2"]
+anims/init = SubResource( 2 )
+
+[node name="Platform5" parent="Platforms" instance=ExtResource( 8 )]
+position = Vector2( 1228, 921 )
+
+[node name="KinematicBody2D" parent="Platforms/Platform5" index="0"]
+position = Vector2( 2, 1 )
+
+[node name="Path2D" parent="Platforms/Platform5" index="1"]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" parent="Platforms/Platform5/Path2D" index="0"]
+position = Vector2( 1, 0.519745 )
+
+[node name="AnimationPlayer" parent="Platforms/Platform5" index="2"]
+anims/init = SubResource( 3 )
+
+[node name="Platform2" parent="Platforms" instance=ExtResource( 8 )]
+position = Vector2( 660, 208 )
+
+[node name="KinematicBody2D" parent="Platforms/Platform2" index="0"]
+position = Vector2( 1, 0.999985 )
+
+[node name="Path2D" parent="Platforms/Platform2" index="1"]
+curve = SubResource( 4 )
+
+[node name="PathFollow2D" parent="Platforms/Platform2/Path2D" index="0"]
+position = Vector2( 0, 0.51973 )
+
+[node name="AnimationPlayer" parent="Platforms/Platform2" index="2"]
+anims/init = SubResource( 5 )
+
+[node name="Platform4" parent="Platforms" instance=ExtResource( 8 )]
+position = Vector2( 1059, 453 )
+
+[node name="KinematicBody2D" parent="Platforms/Platform4" index="0"]
+position = Vector2( 1, 1 )
+
+[node name="Path2D" parent="Platforms/Platform4" index="1"]
+curve = SubResource( 4 )
+
+[node name="PathFollow2D" parent="Platforms/Platform4/Path2D" index="0"]
+position = Vector2( 0, 0.51973 )
+
+[node name="AnimationPlayer" parent="Platforms/Platform4" index="2"]
+anims/init = SubResource( 6 )
+
+[node name="Platform6" parent="Platforms" instance=ExtResource( 8 )]
+position = Vector2( 1469, 697 )
+
+[node name="KinematicBody2D" parent="Platforms/Platform6" index="0"]
+position = Vector2( 1, 1 )
+
+[node name="Path2D" parent="Platforms/Platform6" index="1"]
+curve = SubResource( 4 )
+
+[node name="PathFollow2D" parent="Platforms/Platform6/Path2D" index="0"]
+position = Vector2( 0, 0.51973 )
+
+[node name="AnimationPlayer" parent="Platforms/Platform6" index="2"]
+anims/init = SubResource( 7 )
+
+[node name="Vanishes" type="Node2D" parent="."]
+
+[node name="VanishingBlock" parent="Vanishes" instance=ExtResource( 10 )]
+position = Vector2( 347, 694 )
+
+[node name="VanishingBlock2" parent="Vanishes" instance=ExtResource( 10 )]
+position = Vector2( 379, 694 )
+
+[node name="VanishingBlock3" parent="Vanishes" instance=ExtResource( 10 )]
+position = Vector2( 544, 694 )
+
+[node name="VanishingBlock4" parent="Vanishes" instance=ExtResource( 10 )]
+position = Vector2( 576, 694 )
+
+[node name="VanishingBlock5" parent="Vanishes" instance=ExtResource( 10 )]
+position = Vector2( 802, 826 )
+
+[node name="VanishingBlock6" parent="Vanishes" instance=ExtResource( 10 )]
+position = Vector2( 834, 826 )
+
+[node name="VanishingBlock7" parent="Vanishes" instance=ExtResource( 10 )]
+position = Vector2( 1030, 828 )
+
+[node name="VanishingBlock8" parent="Vanishes" instance=ExtResource( 10 )]
+position = Vector2( 1061, 828 )
+
+[node name="VanishingBlock9" parent="Vanishes" instance=ExtResource( 10 )]
+position = Vector2( 1211, 1067 )
+
+[node name="VanishingBlock10" parent="Vanishes" instance=ExtResource( 10 )]
+position = Vector2( 1243, 1067 )
+
+[node name="VanishingBlock11" parent="Vanishes" instance=ExtResource( 10 )]
+position = Vector2( 1443, 1068 )
+
+[node name="VanishingBlock12" parent="Vanishes" instance=ExtResource( 10 )]
+position = Vector2( 1475, 1068 )
+
+[node name="Doughnuts" type="Node2D" parent="."]
+
+[node name="DoughnutRotate" parent="Doughnuts" instance=ExtResource( 11 )]
+position = Vector2( 364, 745 )
+
+[node name="DoughnutRotate2" parent="Doughnuts" instance=ExtResource( 11 )]
+position = Vector2( 561, 746 )
+
+[node name="DoughnutRotate3" parent="Doughnuts" instance=ExtResource( 11 )]
+position = Vector2( 819, 878 )
+
+[node name="DoughnutRotate4" parent="Doughnuts" instance=ExtResource( 11 )]
+position = Vector2( 1045, 877 )
+
+[node name="DoughnutRotate5" parent="Doughnuts" instance=ExtResource( 11 )]
+position = Vector2( 1225, 1118 )
+
+[node name="DoughnutRotate6" parent="Doughnuts" instance=ExtResource( 11 )]
+position = Vector2( 1457, 1119 )
+
+[node name="DoughnutMachine" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1490, 304 )
+
+[node name="LevelUI" parent="." instance=ExtResource( 12 )]
+
+[editable path="Player"]
+
+[editable path="Platforms/Platform"]
+
+[editable path="Platforms/Platform3"]
+
+[editable path="Platforms/Platform5"]
+
+[editable path="Platforms/Platform2"]
+
+[editable path="Platforms/Platform4"]
+
+[editable path="Platforms/Platform6"]

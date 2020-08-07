@@ -21,6 +21,7 @@ update_rotation = false
 update_scale = false
 
 [node name="Label" type="Label" parent="."]
+visible = false
 margin_left = -20.0
 margin_top = -23.0
 margin_right = 20.0

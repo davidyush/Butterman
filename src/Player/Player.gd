@@ -217,6 +217,7 @@ func die():
     var player_exlosion = PlayerExplosion.instance()
     sprite.visible = false
     can_control = false
+    motion = Vector2.ZERO
     add_child(player_exlosion)
     yield(player_exlosion,"tree_exited")
     var parent = get_parent()

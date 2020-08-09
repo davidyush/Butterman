@@ -94,5 +94,6 @@ scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 10 )
 
 [node name="LevelUI" parent="." instance=ExtResource( 11 )]
+level_name = "mom, i met cannon"
 
 [editable path="Player"]

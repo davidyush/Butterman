@@ -39,6 +39,7 @@ smoothing_speed = 3.0
 position = Vector2( 1009, 211 )
 
 [node name="LevelUI" parent="." instance=ExtResource( 6 )]
+level_name = "5 rooms"
 
 [node name="PortalPair" parent="." instance=ExtResource( 7 )]
 

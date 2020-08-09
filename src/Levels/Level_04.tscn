@@ -107,5 +107,6 @@ position = Vector2( 527, 67 )
 next_scene = ExtResource( 8 )
 
 [node name="LevelUI" parent="." instance=ExtResource( 9 )]
+level_name = "LUL"
 
 [editable path="Player"]

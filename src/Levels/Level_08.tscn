@@ -96,6 +96,7 @@ denay = 0.6
 DIRECTION = Vector2( 1, 0 )
 
 [node name="LevelUI" parent="." instance=ExtResource( 11 )]
+level_name = "3 ways"
 
 [editable path="Player"]
 

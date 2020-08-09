@@ -52,5 +52,6 @@ limit_right = 1200
 limit_bottom = 620
 
 [node name="LevelUI" parent="." instance=ExtResource( 8 )]
+level_name = "swoooop"
 
 [editable path="Player"]

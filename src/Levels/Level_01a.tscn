@@ -33,6 +33,7 @@ position = Vector2( 1322, 485 )
 next_scene = ExtResource( 7 )
 
 [node name="LevelUI" parent="." instance=ExtResource( 6 )]
+level_name = "long jump"
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

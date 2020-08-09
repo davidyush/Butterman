@@ -36,6 +36,7 @@ position = Vector2( 390, 503 )
 limit_right = 800
 
 [node name="LevelUI" parent="." instance=ExtResource( 1 )]
+level_name = "wall jump"
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

@@ -79,5 +79,6 @@ scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 9 )
 
 [node name="LevelUI" parent="." instance=ExtResource( 11 )]
+level_name = "no friction"
 
 [editable path="Player"]

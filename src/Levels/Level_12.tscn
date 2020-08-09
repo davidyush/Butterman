@@ -105,5 +105,6 @@ position = Vector2( 157, 404 )
 position = Vector2( 49, 217 )
 
 [node name="LevelUI" parent="." instance=ExtResource( 8 )]
+level_name = "bla..."
 
 [editable path="Player"]

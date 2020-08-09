@@ -95,6 +95,12 @@ texture = ExtResource( 8 )
 [node name="Camera" parent="." instance=ExtResource( 1 )]
 
 [node name="LevelUI" parent="." instance=ExtResource( 4 )]
+level_name = "first jump"
+
+[node name="LabelName" parent="LevelUI/Control" index="1"]
+margin_top = 0.0
+margin_bottom = 35.0
+valign = 1
 
 [editable path="Player"]
 

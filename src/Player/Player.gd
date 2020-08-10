@@ -2,9 +2,11 @@ extends KinematicBody2D
 
 onready var PlayerExplosion = preload("res://src/Player/PlayerExplosion.tscn")
 
+var MainInstances = ResourceLoader.MainInstances
+
 #todo -> full refactor with pure functions
 #pomoyka
-export (int) var ACCELERATION = 2000
+export (int) var ACCELERATION = 1500
 export (int) var MAX_SPEED = 250
 export (float) var FRICTION = 0.15
 export (int) var GRAVITY = 1000
@@ -36,6 +38,15 @@ func set_friction(value: float) -> void:
 
 func set_gravity(value: int) -> void:
     GRAVITY = value
+
+
+func _ready() -> void:
+    MainInstances.Player = self
+    
+func queue_free() -> void:
+    MainInstances.Player = null
+    .queue_free()
+
 
 func _physics_process(delta: float) -> void:
     just_jumped = false
@@ -172,7 +183,7 @@ func wall_slide_jump_check(wall_axis):
         var left_wall_jump = wall_axis > 0 and Input.is_action_pressed("move_right")
         var right_wall_jump = wall_axis < 0 and Input.is_action_pressed("move_left")
         if left_dir or right_dir:
-            motion.x = wall_axis * MAX_SPEED
+            motion.x = wall_axis * MAX_SPEED/1.5
             motion.y = -JUMP_FORCE * 1.1
             state = MOVE
         elif left_wall_jump or right_wall_jump:
@@ -225,3 +236,5 @@ func die():
     global_position = respoune.global_position
     sprite.visible = true
     can_control = true
+    if MainInstances.UI != null:
+        MainInstances.UI.reset_timer()

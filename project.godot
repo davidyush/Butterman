@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Resource",
+"class": "MainInstances",
+"language": "GDScript",
+"path": "res://src/Utils/MainInstances.gd"
+} ]
 _global_script_class_icons={
-
+"MainInstances": ""
 }
 
 [application]
@@ -21,7 +26,8 @@ config/icon="res://assets/Player/yellow.png"
 
 [autoload]
 
-Utils="*res://src/Utils.gd"
+Utils="*res://src/Utils/Utils.gd"
+ResourceLoader="*res://src/Utils/ResourceLoader.gd"
 
 [debug]
 

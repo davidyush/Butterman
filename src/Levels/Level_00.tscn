@@ -98,8 +98,6 @@ texture = ExtResource( 8 )
 level_name = "first jump"
 
 [node name="LabelName" parent="LevelUI/Control" index="1"]
-margin_top = 0.0
-margin_bottom = 35.0
 valign = 1
 
 [editable path="Player"]

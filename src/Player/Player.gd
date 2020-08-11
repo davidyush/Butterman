@@ -183,7 +183,7 @@ func wall_slide_jump_check(wall_axis):
         var left_wall_jump = wall_axis > 0 and Input.is_action_pressed("move_right")
         var right_wall_jump = wall_axis < 0 and Input.is_action_pressed("move_left")
         if left_dir or right_dir:
-            motion.x = wall_axis * MAX_SPEED/1.5
+            motion.x = wall_axis * MAX_SPEED/1.2
             motion.y = -JUMP_FORCE * 1.1
             state = MOVE
         elif left_wall_jump or right_wall_jump:

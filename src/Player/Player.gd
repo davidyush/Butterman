@@ -4,6 +4,9 @@ onready var PlayerExplosion = preload("res://src/Player/PlayerExplosion.tscn")
 
 var MainInstances = ResourceLoader.MainInstances
 
+const JumpEffect = preload("res://src/Player/JumpEffect.tscn")
+const DustEffect = preload("res://src/Player/DustEffect.tscn")
+
 #todo -> full refactor with pure functions
 #pomoyka
 export (int) var ACCELERATION = 1500
@@ -72,6 +75,7 @@ func _physics_process(delta: float) -> void:
                 
             WALL_SLIDE:
                 label.text = 'W'
+                createDustEffect()
                 var wall_axis = get_wall_axis()
                 if wall_axis != 0:
                     sprite.scale.x = wall_axis
@@ -96,6 +100,8 @@ func get_input_vector():
     var current_sign = sign(input_vector.x)
     if current_sign != 0:
         sprite.scale.x = current_sign * -1
+    if input_vector.x != 0 and (is_on_floor() or is_on_wall()):
+        createDustEffect()
     return input_vector
     
 func apply_horizontal_force(input_vector, delta):
@@ -121,6 +127,7 @@ func jump_check():
             motion.y = 0.0
             
 func jump(force):
+    Utils.instance_scene_on_main(JumpEffect, global_position)
     motion.y = -force
     snap_vector = Vector2.ZERO
     
@@ -147,6 +154,7 @@ func move():
     #Landing
     if was_on_air and is_on_floor():
         motion.x = last_motion.x
+        Utils.instance_scene_on_main(JumpEffect, global_position)
     
     # Just left ground
     if was_on_floor and not is_on_floor() and not just_jumped:
@@ -158,9 +166,17 @@ func move():
     if is_on_floor() and get_floor_velocity().length() == 0 and abs(motion.x) < 1:
         position.x = last_position.x
         
+func createDustEffect() -> void:
+    var dust_position = global_position
+    dust_position.x += rand_range(4, -4)
+    Utils.instance_scene_on_main(DustEffect, dust_position)
+
+
+
 func wall_slide_check() -> void:
     if not is_on_floor() and is_on_wall():
         state = WALL_SLIDE
+        createDustEffect()
 
 func get_wall_axis() -> int:
     var is_right_wall = test_move(transform, Vector2.RIGHT)

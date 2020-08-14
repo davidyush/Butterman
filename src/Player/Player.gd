@@ -35,6 +35,7 @@ onready var sprite = $Sprite
 onready var ray_cast_left = $RayCastLeft
 onready var ray_cast_right = $RayCastRight
 onready var cayote_timer = $CayoteTimer
+onready var anim_player = $AnimationPlayer
 
 func set_friction(value: float) -> void:
     FRICTION = value
@@ -70,6 +71,7 @@ func _physics_process(delta: float) -> void:
                 update_snap_vector()
                 jump_check()
                 apply_gravity(delta)
+                update_animation(input_vector)
                 move()
                 wall_slide_check()
                 
@@ -101,7 +103,11 @@ func get_input_vector():
     if current_sign != 0:
         sprite.scale.x = current_sign * -1
     if input_vector.x != 0 and (is_on_floor() or is_on_wall()):
-        createDustEffect()
+        if MAX_SPEED > 250:
+            createDustEffect()
+            createDustEffect()
+        else:
+            createDustEffect()
     return input_vector
     
 func apply_horizontal_force(input_vector, delta):
@@ -138,6 +144,29 @@ func apply_gravity(delta):
         motion.y = min(motion.y, JUMP_FORCE)
 
 
+func update_animation(input_vec):
+    if input_vec.x != 0:
+        anim_player.play("go")
+        if input_vec.x > 0:
+            rotation_degrees = 1
+        else:
+            rotation_degrees = -1
+    else:
+        anim_player.play("init")
+        rotation_degrees = 0
+    
+    if not is_on_floor():
+        if motion.y < 0:
+            anim_player.play("jump_up")
+        else:
+            anim_player.play("jump_down")
+        if input_vec.x > 0:
+            rotation_degrees = 3 if MAX_SPEED == 250 else 6
+        elif input_vec.x > 0:
+            rotation_degrees = -3 if MAX_SPEED == 250 else 6
+        else:
+            rotation_degrees = 0
+
 func move():
     var was_on_air = not is_on_floor()
     var was_on_floor = is_on_floor()
@@ -168,7 +197,10 @@ func move():
         
 func createDustEffect() -> void:
     var dust_position = global_position
-    dust_position.x += rand_range(4, -4)
+    #if is_on_wall():
+    #    dust_position.x += rand_range(40, -40)
+    #else:
+    #    dust_position.x += rand_range(4, -4)
     Utils.instance_scene_on_main(DustEffect, dust_position)
 
 
@@ -239,14 +271,15 @@ func check_valid_wall(wall_raycast):
 
 
 #this method is looks like shit
-func die():
+func die(with_explosion: bool = true) -> void:
     print('player is dead')
     var player_exlosion = PlayerExplosion.instance()
     sprite.visible = false
     can_control = false
     motion = Vector2.ZERO
-    add_child(player_exlosion)
-    yield(player_exlosion,"tree_exited")
+    if with_explosion:
+        add_child(player_exlosion)
+        yield(player_exlosion,"tree_exited")
     var parent = get_parent()
     var respoune = parent.get_node("Respoune")
     global_position = respoune.global_position

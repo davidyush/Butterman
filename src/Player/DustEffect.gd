@@ -1,6 +1,6 @@
 extends Node2D
 
-var motion = Vector2(rand_range(-20, 20), rand_range(-10, -40))
+var motion = Vector2(rand_range(-20, 20), rand_range(-10, -50))
 
 func _process(delta: float) -> void:
     position += motion * delta

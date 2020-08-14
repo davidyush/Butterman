@@ -23,7 +23,6 @@ func _ready() -> void:
     camera.limit_right = map_limits.right
     camera.limit_top = map_limits.top
     camera.smoothing_enabled = true
-    
 
 func get_lims(tile_map_node: TileMap) -> Dictionary:
     var tile_rect = tile_map_node.get_used_rect()
@@ -39,5 +38,5 @@ func get_lims(tile_map_node: TileMap) -> Dictionary:
 
 func _physics_process(delta: float) -> void:
     if player.global_position.y > map_limits.bottom * 1.1:
-        player.die()
+        player.die(false)
     

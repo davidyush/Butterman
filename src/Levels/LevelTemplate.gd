@@ -2,13 +2,14 @@ extends Node2D
 
 onready var tile_map_simple = $TileMap
 onready var tile_map_grass = $TileMapGrass
-onready var camera: = $Camera
 onready var respoune: = $Respoune
 onready var player: = $Player
 
 const CELL_SIZE: = 16
 var time_passed: = 0.0
 var map_limits: Dictionary
+
+var MainInstances = ResourceLoader.MainInstances
 
 func _ready() -> void:
     VisualServer.set_default_clear_color(Color.darksalmon)
@@ -18,11 +19,9 @@ func _ready() -> void:
         map_limits = get_lims(tile_map_grass)
     else:
         map_limits = get_lims(tile_map_simple)
-    camera.limit_bottom = map_limits.bottom
-    camera.limit_left = map_limits.left
-    camera.limit_right = map_limits.right
-    camera.limit_top = map_limits.top
-    camera.smoothing_enabled = true
+    MainInstances.MainCamera.set_limits(map_limits)
+    MainInstances.MainCamera.set_smoothing(true)
+
 
 func get_lims(tile_map_node: TileMap) -> Dictionary:
     var tile_rect = tile_map_node.get_used_rect()

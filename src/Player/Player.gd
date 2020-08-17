@@ -148,12 +148,12 @@ func update_animation(input_vec):
     if input_vec.x != 0:
         anim_player.play("go")
         if input_vec.x > 0:
-            rotation_degrees = 1
+            sprite.rotation_degrees = 1 if MAX_SPEED == 250 else 3
         else:
-            rotation_degrees = -1
+            sprite.rotation_degrees = -1 if MAX_SPEED == 250 else -3
     else:
         anim_player.play("init")
-        rotation_degrees = 0
+        sprite.rotation_degrees = 0
     
     if not is_on_floor():
         if motion.y < 0:
@@ -161,11 +161,11 @@ func update_animation(input_vec):
         else:
             anim_player.play("jump_down")
         if input_vec.x > 0:
-            rotation_degrees = 3 if MAX_SPEED == 250 else 6
-        elif input_vec.x > 0:
-            rotation_degrees = -3 if MAX_SPEED == 250 else 6
+            sprite.rotation_degrees = 3 if MAX_SPEED == 250 else 6
+        elif input_vec.x < 0:
+            sprite.rotation_degrees = -3 if MAX_SPEED == 250 else -6
         else:
-            rotation_degrees = 0
+            sprite.rotation_degrees = 0
 
 func move():
     var was_on_air = not is_on_floor()
@@ -277,6 +277,8 @@ func die(with_explosion: bool = true) -> void:
     sprite.visible = false
     can_control = false
     motion = Vector2.ZERO
+    if MainInstances.MainCamera != null:
+        MainInstances.MainCamera.set_smoothing_speed(0)
     if with_explosion:
         add_child(player_exlosion)
         yield(player_exlosion,"tree_exited")
@@ -285,5 +287,6 @@ func die(with_explosion: bool = true) -> void:
     global_position = respoune.global_position
     sprite.visible = true
     can_control = true
+    MainInstances.MainCamera.set_smoothing_speed(5)
     if MainInstances.UI != null:
         MainInstances.UI.reset_timer()

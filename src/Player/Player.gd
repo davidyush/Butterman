@@ -148,9 +148,9 @@ func update_animation(input_vec):
     if input_vec.x != 0:
         anim_player.play("go")
         if input_vec.x > 0:
-            sprite.rotation_degrees = 1 if MAX_SPEED == 250 else 3
+            sprite.rotation_degrees = 1 if MAX_SPEED == 250 else 2
         else:
-            sprite.rotation_degrees = -1 if MAX_SPEED == 250 else -3
+            sprite.rotation_degrees = -1 if MAX_SPEED == 250 else -2
     else:
         anim_player.play("init")
         sprite.rotation_degrees = 0
@@ -161,9 +161,9 @@ func update_animation(input_vec):
         else:
             anim_player.play("jump_down")
         if input_vec.x > 0:
-            sprite.rotation_degrees = 3 if MAX_SPEED == 250 else 6
+            sprite.rotation_degrees = 2 if MAX_SPEED == 250 else 3
         elif input_vec.x < 0:
-            sprite.rotation_degrees = -3 if MAX_SPEED == 250 else -6
+            sprite.rotation_degrees = -2 if MAX_SPEED == 250 else -3
         else:
             sprite.rotation_degrees = 0
 

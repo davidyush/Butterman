@@ -1,6 +1,5 @@
 extends Node2D
 
-onready var tile_map_simple = $TileMap
 onready var tile_map_grass = $TileMapGrass
 onready var respoune: = $Respoune
 onready var player: = $Player
@@ -17,8 +16,6 @@ func _ready() -> void:
     respoune.global_position = player.global_position
     if tile_map_grass:
         map_limits = get_lims(tile_map_grass)
-    else:
-        map_limits = get_lims(tile_map_simple)
     MainInstances.MainCamera.set_limits(map_limits)
     MainInstances.MainCamera.set_smoothing(true)
 

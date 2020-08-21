@@ -14,7 +14,6 @@ _data = {
 
 [node name="KinematicBody2D" parent="Platform" index="0"]
 position = Vector2( 0, 1 )
-skew = 4.37114e-08
 
 [node name="DoughnutCannon" parent="Platform/KinematicBody2D" index="2" instance=ExtResource( 1 )]
 position = Vector2( -1, 25.9869 )

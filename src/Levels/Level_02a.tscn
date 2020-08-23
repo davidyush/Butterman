@@ -1,0 +1,406 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://src/Objects/TileMap/TileMapGrass.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Camera/Camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Levels/LevelTemplate.gd" type="Script" id=4]
+[ext_resource path="res://src/Toast/Toast.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/UI/LevelUI.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Objects/DoughMove/DoughMove.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Levels/Level_03.tscn" type="PackedScene" id=8]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 130, 1 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "move"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Area2D/Sprite:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, -190, 1 )
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "move"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Area2D/Sprite:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "move"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Area2D/Sprite:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Curve2D" id=6]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 193 )
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "move"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Area2D/Sprite:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "move"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Area2D/Sprite:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Curve2D" id=9]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, -241 )
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "move"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Area2D/Sprite:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "move"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Area2D/Sprite:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[node name="LevelTemplate" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="TileMapGrass" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 0, 9, 0, 1, 536870920, 0, 2, 536870920, 0, 3, 536870920, 0, 4, 536870920, 0, 5, 536870920, 0, 6, 536870920, 0, 7, 536870920, 0, 8, 536870920, 0, 9, 536870920, 0, 10, 536870920, 0, 11, 536870920, 0, 12, 536870920, 0, 13, 536870920, 0, 14, 536870920, 0, 15, 536870920, 0, 16, 536870920, 0, 17, 536870920, 0, 18, 536870920, 0, 19, 536870920, 0, 20, 536870920, 0, 21, 536870920, 0, 22, 536870920, 0, 23, 536870920, 0, 24, 536870920, 0, 25, 536870920, 0, 26, 536870920, 0, 27, 536870920, 0, 28, 536870920, 0, 29, 536870920, 0, 30, 536870920, 0, 31, 536870920, 0, 32, 536870920, 0, 33, 536870920, 0, 34, 536870920, 0, 35, 536870920, 0, 36, 536870920, 0, 37, 536870920, 0, 38, 536870920, 0, 39, 536870920, 0, 40, 536870920, 0, 41, 536870920, 0, 42, 536870920, 0, 43, 536870920, 0, 44, 7, 0, 65536, 9, 0, 65537, 536870920, 0, 65538, 11, 0, 65539, 11, 0, 65540, 11, 0, 65541, 11, 0, 65542, 11, 0, 65543, 11, 0, 65544, 11, 0, 65545, 11, 0, 65546, 11, 0, 65547, 11, 0, 65548, 11, 0, 65549, 11, 0, 65550, 11, 0, 65551, 11, 0, 65552, 11, 0, 65553, 11, 0, 65554, 11, 0, 65555, 11, 0, 65556, 11, 0, 65557, 11, 0, 65558, 11, 0, 65559, 11, 0, 65560, 11, 0, 65561, 11, 0, 65562, 11, 0, 65563, 11, 0, 65564, 11, 0, 65565, 11, 0, 65566, 11, 0, 65567, 11, 0, 65568, 11, 0, 65569, 11, 0, 65570, 11, 0, 65571, 11, 0, 65572, 11, 0, 65573, 11, 0, 65574, 11, 0, 65575, 11, 0, 65576, 11, 0, 65577, 11, 0, 65578, 11, 0, 65579, 536870920, 0, 65580, 7, 0, 131072, 9, 0, 131073, 7, 0, 131115, 9, 0, 131116, 7, 0, 196608, 9, 0, 196609, 7, 0, 196651, 9, 0, 196652, 7, 0, 262144, 9, 0, 262145, 7, 0, 262187, 9, 0, 262188, 7, 0, 327680, 9, 0, 327681, 7, 0, 327723, 9, 0, 327724, 7, 0, 393216, 9, 0, 393217, 7, 0, 393259, 9, 0, 393260, 7, 0, 458752, 9, 0, 458753, 7, 0, 458795, 9, 0, 458796, 7, 0, 524288, 9, 0, 524289, 7, 0, 524297, 0, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 524308, 1, 0, 524309, 1, 0, 524310, 1, 0, 524311, 1, 0, 524312, 1, 0, 524313, 1, 0, 524314, 1, 0, 524315, 1, 0, 524316, 1, 0, 524317, 1, 0, 524318, 1, 0, 524319, 1, 0, 524320, 1, 0, 524321, 2, 0, 524331, 9, 0, 524332, 7, 0, 589824, 9, 0, 589825, 7, 0, 589833, 9, 0, 589834, 536870920, 0, 589835, 11, 0, 589836, 11, 0, 589837, 11, 0, 589838, 11, 0, 589839, 11, 0, 589840, 11, 0, 589841, 11, 0, 589842, 11, 0, 589843, 11, 0, 589844, 11, 0, 589845, 11, 0, 589846, 11, 0, 589847, 11, 0, 589848, 11, 0, 589849, 11, 0, 589850, 11, 0, 589851, 11, 0, 589852, 11, 0, 589853, 11, 0, 589854, 11, 0, 589855, 11, 0, 589856, 536870920, 0, 589857, 7, 0, 589867, 9, 0, 589868, 7, 0, 655360, 9, 0, 655361, 7, 0, 655369, 9, 0, 655370, 7, 0, 655392, 9, 0, 655393, 7, 0, 655403, 9, 0, 655404, 7, 0, 720896, 9, 0, 720897, 7, 0, 720905, 9, 0, 720906, 7, 0, 720928, 9, 0, 720929, 7, 0, 720939, 9, 0, 720940, 7, 0, 786432, 9, 0, 786433, 7, 0, 786441, 9, 0, 786442, 7, 0, 786464, 9, 0, 786465, 7, 0, 786475, 9, 0, 786476, 7, 0, 851968, 9, 0, 851969, 7, 0, 851977, 9, 0, 851978, 7, 0, 852000, 9, 0, 852001, 7, 0, 852011, 9, 0, 852012, 7, 0, 917504, 9, 0, 917505, 7, 0, 917513, 9, 0, 917514, 7, 0, 917536, 9, 0, 917537, 7, 0, 917547, 9, 0, 917548, 7, 0, 983040, 9, 0, 983041, 7, 0, 983049, 9, 0, 983050, 7, 0, 983072, 9, 0, 983073, 7, 0, 983083, 9, 0, 983084, 7, 0, 1048576, 9, 0, 1048577, 7, 0, 1048585, 9, 0, 1048586, 7, 0, 1048608, 9, 0, 1048609, 7, 0, 1048619, 9, 0, 1048620, 7, 0, 1114112, 9, 0, 1114113, 7, 0, 1114121, 9, 0, 1114122, 7, 0, 1114144, 9, 0, 1114145, 7, 0, 1114155, 9, 0, 1114156, 7, 0, 1179648, 9, 0, 1179649, 7, 0, 1179657, 9, 0, 1179658, 7, 0, 1179680, 9, 0, 1179681, 7, 0, 1179691, 9, 0, 1179692, 7, 0, 1245184, 9, 0, 1245185, 7, 0, 1245193, 9, 0, 1245194, 7, 0, 1245216, 9, 0, 1245217, 7, 0, 1245227, 9, 0, 1245228, 7, 0, 1310720, 9, 0, 1310721, 7, 0, 1310729, 9, 0, 1310730, 7, 0, 1310752, 9, 0, 1310753, 7, 0, 1310763, 9, 0, 1310764, 7, 0, 1376256, 9, 0, 1376257, 7, 0, 1376265, 9, 0, 1376266, 7, 0, 1376288, 9, 0, 1376289, 7, 0, 1376299, 9, 0, 1376300, 7, 0, 1441792, 9, 0, 1441793, 7, 0, 1441801, 9, 0, 1441802, 7, 0, 1441824, 9, 0, 1441825, 7, 0, 1441835, 9, 0, 1441836, 7, 0, 1507328, 9, 0, 1507329, 7, 0, 1507337, 9, 0, 1507338, 7, 0, 1507360, 9, 0, 1507361, 7, 0, 1507371, 9, 0, 1507372, 7, 0, 1572864, 9, 0, 1572865, 7, 0, 1572873, 9, 0, 1572874, 536870920, 0, 1572875, 1073741835, 0, 1572876, 1073741835, 0, 1572877, 1073741835, 0, 1572878, 1073741835, 0, 1572879, 1073741835, 0, 1572880, 1073741835, 0, 1572881, 1073741835, 0, 1572882, 1073741835, 0, 1572883, 1073741835, 0, 1572884, 1073741835, 0, 1572885, 1073741835, 0, 1572886, 1073741835, 0, 1572887, 1073741835, 0, 1572888, 1073741835, 0, 1572889, 1073741835, 0, 1572890, 1073741835, 0, 1572891, 1073741835, 0, 1572892, 1073741835, 0, 1572893, 1073741835, 0, 1572894, 1073741835, 0, 1572895, 1073741835, 0, 1572896, 536870920, 0, 1572897, 7, 0, 1572907, 9, 0, 1572908, 7, 0, 1638400, 9, 0, 1638401, 7, 0, 1638409, 10, 0, 1638410, 11, 0, 1638411, 11, 0, 1638412, 11, 0, 1638413, 11, 0, 1638414, 11, 0, 1638415, 11, 0, 1638416, 11, 0, 1638417, 11, 0, 1638418, 11, 0, 1638419, 11, 0, 1638420, 11, 0, 1638421, 11, 0, 1638422, 11, 0, 1638423, 11, 0, 1638424, 11, 0, 1638425, 11, 0, 1638426, 11, 0, 1638427, 11, 0, 1638428, 11, 0, 1638429, 11, 0, 1638430, 11, 0, 1638431, 11, 0, 1638432, 11, 0, 1638433, 12, 0, 1638443, 9, 0, 1638444, 7, 0, 1703936, 9, 0, 1703937, 7, 0, 1703979, 9, 0, 1703980, 7, 0, 1769472, 9, 0, 1769473, 7, 0, 1769515, 9, 0, 1769516, 7, 0, 1835008, 9, 0, 1835009, 7, 0, 1835051, 9, 0, 1835052, 7, 0, 1900544, 9, 0, 1900545, 7, 0, 1900587, 9, 0, 1900588, 7, 0, 1966080, 9, 0, 1966081, 7, 0, 1966123, 9, 0, 1966124, 7, 0, 2031616, 9, 0, 2031617, 7, 0, 2031659, 9, 0, 2031660, 7, 0, 2097152, 9, 0, 2097153, 7, 0, 2097161, 0, 0, 2097162, 1, 0, 2097163, 1, 0, 2097164, 1, 0, 2097165, 1, 0, 2097166, 1, 0, 2097167, 1, 0, 2097168, 1, 0, 2097169, 1, 0, 2097170, 1, 0, 2097171, 1, 0, 2097172, 1, 0, 2097173, 1, 0, 2097174, 1, 0, 2097175, 1, 0, 2097176, 1, 0, 2097177, 1, 0, 2097178, 1, 0, 2097179, 1, 0, 2097180, 1, 0, 2097181, 1, 0, 2097182, 1, 0, 2097183, 1, 0, 2097184, 1, 0, 2097185, 1, 0, 2097186, 1, 0, 2097187, 1, 0, 2097188, 1, 0, 2097189, 1, 0, 2097190, 1, 0, 2097191, 1, 0, 2097192, 1, 0, 2097193, 1, 0, 2097194, 1, 0, 2097195, 536870920, 0, 2097196, 7, 0, 2162688, 9, 0, 2162689, 7, 0, 2162697, 10, 0, 2162698, 11, 0, 2162699, 11, 0, 2162700, 11, 0, 2162701, 11, 0, 2162702, 11, 0, 2162703, 11, 0, 2162704, 11, 0, 2162705, 11, 0, 2162706, 11, 0, 2162707, 11, 0, 2162708, 11, 0, 2162709, 11, 0, 2162710, 11, 0, 2162711, 11, 0, 2162712, 11, 0, 2162713, 11, 0, 2162714, 11, 0, 2162715, 11, 0, 2162716, 11, 0, 2162717, 11, 0, 2162718, 11, 0, 2162719, 11, 0, 2162720, 11, 0, 2162721, 11, 0, 2162722, 11, 0, 2162723, 11, 0, 2162724, 11, 0, 2162725, 11, 0, 2162726, 11, 0, 2162727, 11, 0, 2162728, 11, 0, 2162729, 11, 0, 2162730, 11, 0, 2162731, 536870920, 0, 2162732, 7, 0, 2228224, 9, 0, 2228225, 7, 0, 2228267, 9, 0, 2228268, 7, 0, 2293760, 9, 0, 2293761, 7, 0, 2293803, 9, 0, 2293804, 7, 0, 2359296, 9, 0, 2359297, 7, 0, 2359339, 9, 0, 2359340, 7, 0, 2424832, 9, 0, 2424833, 7, 0, 2424875, 9, 0, 2424876, 7, 0, 2490368, 9, 0, 2490369, 7, 0, 2490411, 9, 0, 2490412, 7, 0, 2555904, 9, 0, 2555905, 7, 0, 2555947, 9, 0, 2555948, 7, 0, 2621440, 9, 0, 2621441, 7, 0, 2621483, 9, 0, 2621484, 7, 0, 2686976, 9, 0, 2686977, 536870920, 0, 2686978, 1, 0, 2686979, 1, 0, 2686980, 1, 0, 2686981, 1, 0, 2686982, 1, 0, 2686983, 1, 0, 2686984, 1, 0, 2686985, 1, 0, 2686986, 1, 0, 2686987, 1, 0, 2686988, 1, 0, 2686989, 1, 0, 2686990, 1, 0, 2686991, 1, 0, 2686992, 1, 0, 2686993, 1, 0, 2686994, 1, 0, 2686995, 1, 0, 2686996, 1, 0, 2686997, 1, 0, 2686998, 1, 0, 2686999, 1, 0, 2687000, 1, 0, 2687001, 1, 0, 2687002, 1, 0, 2687003, 1, 0, 2687004, 1, 0, 2687005, 1, 0, 2687006, 1, 0, 2687007, 1, 0, 2687008, 1, 0, 2687009, 1, 0, 2687010, 1, 0, 2687011, 2, 0, 2687019, 9, 0, 2687020, 7, 0, 2752512, 9, 0, 2752513, 536870920, 0, 2752514, 11, 0, 2752515, 11, 0, 2752516, 11, 0, 2752517, 11, 0, 2752518, 11, 0, 2752519, 11, 0, 2752520, 11, 0, 2752521, 11, 0, 2752522, 11, 0, 2752523, 11, 0, 2752524, 11, 0, 2752525, 11, 0, 2752526, 11, 0, 2752527, 11, 0, 2752528, 11, 0, 2752529, 11, 0, 2752530, 11, 0, 2752531, 11, 0, 2752532, 11, 0, 2752533, 11, 0, 2752534, 11, 0, 2752535, 11, 0, 2752536, 11, 0, 2752537, 11, 0, 2752538, 11, 0, 2752539, 11, 0, 2752540, 11, 0, 2752541, 11, 0, 2752542, 11, 0, 2752543, 11, 0, 2752544, 11, 0, 2752545, 11, 0, 2752546, 11, 0, 2752547, 12, 0, 2752555, 9, 0, 2752556, 7, 0, 2818048, 9, 0, 2818049, 7, 0, 2818091, 9, 0, 2818092, 7, 0, 2883584, 9, 0, 2883585, 7, 0, 2883627, 9, 0, 2883628, 7, 0, 2949120, 9, 0, 2949121, 7, 0, 2949163, 9, 0, 2949164, 7, 0, 3014656, 9, 0, 3014657, 7, 0, 3014699, 9, 0, 3014700, 7, 0, 3080192, 9, 0, 3080193, 7, 0, 3080235, 9, 0, 3080236, 7, 0, 3145728, 9, 0, 3145729, 7, 0, 3145771, 9, 0, 3145772, 7, 0, 3211264, 9, 0, 3211265, 536870920, 0, 3211266, 1, 0, 3211267, 1, 0, 3211268, 1, 0, 3211269, 1, 0, 3211270, 1, 0, 3211271, 1, 0, 3211272, 1, 0, 3211273, 1, 0, 3211274, 1, 0, 3211275, 1, 0, 3211276, 1, 0, 3211277, 1, 0, 3211278, 1, 0, 3211279, 1, 0, 3211280, 1, 0, 3211281, 1, 0, 3211282, 1, 0, 3211283, 1, 0, 3211284, 1, 0, 3211285, 1, 0, 3211286, 1, 0, 3211287, 1, 0, 3211288, 1, 0, 3211289, 1, 0, 3211290, 1, 0, 3211291, 1, 0, 3211292, 1, 0, 3211293, 1, 0, 3211294, 1, 0, 3211295, 1, 0, 3211296, 1, 0, 3211297, 1, 0, 3211298, 1, 0, 3211299, 1, 0, 3211300, 1, 0, 3211301, 1, 0, 3211302, 1, 0, 3211303, 1, 0, 3211304, 1, 0, 3211305, 1, 0, 3211306, 1, 0, 3211307, 536870920, 0, 3211308, 7, 0, 3276800, 10, 0, 3276801, 11, 0, 3276802, 11, 0, 3276803, 11, 0, 3276804, 11, 0, 3276805, 11, 0, 3276806, 11, 0, 3276807, 11, 0, 3276808, 11, 0, 3276809, 11, 0, 3276810, 11, 0, 3276811, 11, 0, 3276812, 11, 0, 3276813, 11, 0, 3276814, 11, 0, 3276815, 11, 0, 3276816, 11, 0, 3276817, 11, 0, 3276818, 11, 0, 3276819, 11, 0, 3276820, 11, 0, 3276821, 11, 0, 3276822, 11, 0, 3276823, 11, 0, 3276824, 11, 0, 3276825, 11, 0, 3276826, 11, 0, 3276827, 11, 0, 3276828, 11, 0, 3276829, 11, 0, 3276830, 11, 0, 3276831, 11, 0, 3276832, 11, 0, 3276833, 11, 0, 3276834, 11, 0, 3276835, 11, 0, 3276836, 11, 0, 3276837, 11, 0, 3276838, 11, 0, 3276839, 11, 0, 3276840, 11, 0, 3276841, 11, 0, 3276842, 11, 0, 3276843, 11, 0, 3276844, 12, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 102, 766 )
+
+[node name="RemoteTransform2D" parent="Player" index="2"]
+remote_path = NodePath("../../Camera")
+
+[node name="Respoune" type="Position2D" parent="."]
+
+[node name="Camera" parent="." instance=ExtResource( 3 )]
+position = Vector2( 102, 766 )
+
+[node name="Toast" parent="." instance=ExtResource( 5 )]
+position = Vector2( 346, 115 )
+next_scene = ExtResource( 8 )
+
+[node name="LevelUI" parent="." instance=ExtResource( 6 )]
+level_name = "Up"
+
+[node name="DoughMoves" type="Node2D" parent="."]
+
+[node name="DoughMove" parent="DoughMoves" instance=ExtResource( 7 )]
+position = Vector2( 547, 784 )
+
+[node name="Area2D" parent="DoughMoves/DoughMove" index="0"]
+position = Vector2( 0, 1 )
+
+[node name="Path2D" parent="DoughMoves/DoughMove" index="1"]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" parent="DoughMoves/DoughMove/Path2D" index="0"]
+position = Vector2( 0, 1 )
+
+[node name="DoughMove2" parent="DoughMoves" instance=ExtResource( 7 )]
+position = Vector2( 244, 543 )
+
+[node name="Area2D" parent="DoughMoves/DoughMove2" index="0"]
+position = Vector2( 0, 1 )
+
+[node name="Path2D" parent="DoughMoves/DoughMove2" index="1"]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" parent="DoughMoves/DoughMove2/Path2D" index="0"]
+position = Vector2( 0, 1 )
+
+[node name="AnimationPlayer" parent="DoughMoves/DoughMove2" index="2"]
+anims/move = SubResource( 2 )
+
+[node name="DoughMove3" parent="DoughMoves" instance=ExtResource( 7 )]
+position = Vector2( 383, 655 )
+
+[node name="Area2D" parent="DoughMoves/DoughMove3" index="0"]
+position = Vector2( 0, 1 )
+rotation = 3.14159
+
+[node name="Path2D" parent="DoughMoves/DoughMove3" index="1"]
+curve = SubResource( 3 )
+
+[node name="PathFollow2D" parent="DoughMoves/DoughMove3/Path2D" index="0"]
+position = Vector2( 0, 1 )
+rotation = 3.14159
+
+[node name="AnimationPlayer" parent="DoughMoves/DoughMove3" index="2"]
+anims/move = SubResource( 4 )
+
+[node name="DoughMove4" parent="DoughMoves" instance=ExtResource( 7 )]
+position = Vector2( 335, 508 )
+
+[node name="Area2D" parent="DoughMoves/DoughMove4" index="0"]
+position = Vector2( 0, 1 )
+rotation = 3.14159
+
+[node name="Path2D" parent="DoughMoves/DoughMove4" index="1"]
+curve = SubResource( 3 )
+
+[node name="PathFollow2D" parent="DoughMoves/DoughMove4/Path2D" index="0"]
+position = Vector2( 0, 1 )
+rotation = 3.14159
+
+[node name="AnimationPlayer" parent="DoughMoves/DoughMove4" index="2"]
+anims/move = SubResource( 5 )
+
+[node name="DoughMove5" parent="DoughMoves" instance=ExtResource( 7 )]
+position = Vector2( 144, 189 )
+
+[node name="Area2D" parent="DoughMoves/DoughMove5" index="0"]
+position = Vector2( 0, 2 )
+rotation = 1.5708
+
+[node name="Path2D" parent="DoughMoves/DoughMove5" index="1"]
+curve = SubResource( 6 )
+
+[node name="PathFollow2D" parent="DoughMoves/DoughMove5/Path2D" index="0"]
+position = Vector2( 0, 2 )
+rotation = 1.5708
+
+[node name="AnimationPlayer" parent="DoughMoves/DoughMove5" index="2"]
+anims/move = SubResource( 7 )
+
+[node name="DoughMove6" parent="DoughMoves" instance=ExtResource( 7 )]
+position = Vector2( 686, 268 )
+
+[node name="Area2D" parent="DoughMoves/DoughMove6" index="0"]
+position = Vector2( 0, 2 )
+rotation = 1.5708
+
+[node name="Path2D" parent="DoughMoves/DoughMove6" index="1"]
+curve = SubResource( 6 )
+
+[node name="PathFollow2D" parent="DoughMoves/DoughMove6/Path2D" index="0"]
+position = Vector2( 0, 2 )
+rotation = 1.5708
+
+[node name="AnimationPlayer" parent="DoughMoves/DoughMove6" index="2"]
+anims/move = SubResource( 8 )
+
+[node name="DoughMove7" parent="DoughMoves" instance=ExtResource( 7 )]
+position = Vector2( 33, 416 )
+
+[node name="Area2D" parent="DoughMoves/DoughMove7" index="0"]
+position = Vector2( 0, 3 )
+rotation = -1.5708
+
+[node name="Path2D" parent="DoughMoves/DoughMove7" index="1"]
+curve = SubResource( 9 )
+
+[node name="PathFollow2D" parent="DoughMoves/DoughMove7/Path2D" index="0"]
+position = Vector2( 0, 3 )
+rotation = -1.5708
+
+[node name="AnimationPlayer" parent="DoughMoves/DoughMove7" index="2"]
+anims/move = SubResource( 10 )
+
+[node name="DoughMove8" parent="DoughMoves" instance=ExtResource( 7 )]
+position = Vector2( 546, 416 )
+
+[node name="Area2D" parent="DoughMoves/DoughMove8" index="0"]
+position = Vector2( 0, 3 )
+rotation = -1.5708
+
+[node name="Path2D" parent="DoughMoves/DoughMove8" index="1"]
+curve = SubResource( 9 )
+
+[node name="PathFollow2D" parent="DoughMoves/DoughMove8/Path2D" index="0"]
+position = Vector2( 0, 3 )
+rotation = -1.5708
+
+[node name="AnimationPlayer" parent="DoughMoves/DoughMove8" index="2"]
+anims/move = SubResource( 11 )
+
+[editable path="Player"]
+
+[editable path="DoughMoves/DoughMove"]
+
+[editable path="DoughMoves/DoughMove2"]
+
+[editable path="DoughMoves/DoughMove3"]
+
+[editable path="DoughMoves/DoughMove4"]
+
+[editable path="DoughMoves/DoughMove5"]
+
+[editable path="DoughMoves/DoughMove6"]
+
+[editable path="DoughMoves/DoughMove7"]
+
+[editable path="DoughMoves/DoughMove8"]

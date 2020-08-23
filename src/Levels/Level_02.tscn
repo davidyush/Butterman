@@ -6,7 +6,7 @@
 [ext_resource path="res://src/Toast/Toast.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Camera/Camera.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Levels/LevelTemplate.gd" type="Script" id=6]
-[ext_resource path="res://src/Levels/Level_03.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Levels/Level_02a.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/UI/LevelUI.tscn" type="PackedScene" id=8]
 
 [node name="LevelTemplate" type="Node2D"]

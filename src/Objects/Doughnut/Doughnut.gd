@@ -1,5 +1,7 @@
 extends Area2D
 
+onready var DoughnutExp = preload("res://src/Objects/Doughnut/DoughnutExp.tscn")
+
 var velocity := Vector2.ZERO
 var direction := Vector2.ZERO
 
@@ -20,6 +22,7 @@ func _physics_process(delta):
 
 
 func _on_Doughnut_body_entered(body: Node) -> void:
+    Utils.instance_scene_on_main(DoughnutExp, global_position)
     if body.name == 'Player':
         body.die()
     queue_free()

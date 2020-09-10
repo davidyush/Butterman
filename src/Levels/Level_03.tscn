@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://src/Objects/TileMap/TileMapGrass.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/Player/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/Trees/tree_00.png" type="Texture" id=9]
 [ext_resource path="res://assets/Trees/tree_01.png" type="Texture" id=10]
 [ext_resource path="res://src/UI/LevelUI.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/BG/Background.tscn" type="PackedScene" id=12]
 
 [node name="Level_03" type="Node2D"]
 script = ExtResource( 6 )
@@ -31,7 +32,7 @@ remote_path = NodePath("../../Camera")
 [node name="Respoune" type="Position2D" parent="."]
 
 [node name="Toast" parent="." instance=ExtResource( 4 )]
-position = Vector2( 803, 110 )
+position = Vector2( 809, 109 )
 next_scene = ExtResource( 7 )
 
 [node name="Camera" parent="." instance=ExtResource( 5 )]
@@ -55,17 +56,17 @@ rotation = -2.77239
 [node name="Cannons" type="Node2D" parent="."]
 
 [node name="DoughnutCannon" parent="Cannons" instance=ExtResource( 8 )]
-position = Vector2( 773, 526 )
+position = Vector2( 780, 526 )
 rotation = 3.14159
 DIRECTION = Vector2( -1, 0 )
 
 [node name="DoughnutCannon2" parent="Cannons" instance=ExtResource( 8 )]
-position = Vector2( 772, 159 )
+position = Vector2( 779, 158 )
 rotation = 3.14159
 DIRECTION = Vector2( -1, 0 )
 
 [node name="DoughnutCannon3" parent="Cannons" instance=ExtResource( 8 )]
-position = Vector2( 60, 331 )
+position = Vector2( 69, 332 )
 DIRECTION = Vector2( 1, 0 )
 
 [node name="Decor" type="Node2D" parent="."]
@@ -95,5 +96,7 @@ texture = ExtResource( 10 )
 
 [node name="LevelUI" parent="." instance=ExtResource( 11 )]
 level_name = "mom, i met cannon"
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 12 )]
 
 [editable path="Player"]

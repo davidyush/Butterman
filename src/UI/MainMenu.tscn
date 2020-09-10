@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/font/MainFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://src/UI/MainMenu.gd" type="Script" id=2]
 [ext_resource path="res://assets/Player/yellow.png" type="Texture" id=3]
+[ext_resource path="res://src/UI/ChooseLevelMenu.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "init"
@@ -88,7 +89,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MainButtons" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -101,22 +102,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Play" type="Button" parent="VBoxContainer"]
+[node name="Play" type="Button" parent="MainButtons"]
 margin_right = 204.0
 margin_bottom = 22.0
 custom_fonts/font = ExtResource( 1 )
 text = "go play"
 
-[node name="Exit" type="Button" parent="VBoxContainer"]
+[node name="Choose" type="Button" parent="MainButtons"]
 margin_top = 26.0
 margin_right = 204.0
 margin_bottom = 48.0
 custom_fonts/font = ExtResource( 1 )
-text = "no please no"
+text = "choose"
+
+[node name="Exit" type="Button" parent="MainButtons"]
+margin_top = 52.0
+margin_right = 204.0
+margin_bottom = 74.0
+custom_fonts/font = ExtResource( 1 )
+text = "nope"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "init"
 playback_speed = 0.25
 anims/init = SubResource( 1 )
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
+
+[node name="ChooseLevelMenu" parent="." instance=ExtResource( 4 )]
+visible = false
+[connection signal="pressed" from="MainButtons/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="MainButtons/Choose" to="." method="_on_Choose_pressed"]
+[connection signal="pressed" from="MainButtons/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="ChooseLevelMenu/VBoxContainer/Row0/BackBtn" to="." method="_on_BackBtn_pressed"]
+
+[editable path="ChooseLevelMenu"]

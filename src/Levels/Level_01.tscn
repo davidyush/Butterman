@@ -7,7 +7,7 @@
 [ext_resource path="res://src/Levels/LevelTemplate.gd" type="Script" id=5]
 [ext_resource path="res://src/Levels/Level_01a.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/Objects/TileMap/TileMapGrass.tscn" type="PackedScene" id=7]
-[ext_resource path="res://assets/bg/bg.png" type="Texture" id=8]
+[ext_resource path="res://src/BG/Background.tscn" type="PackedScene" id=8]
 
 [node name="Level_01" type="Node2D"]
 script = ExtResource( 5 )
@@ -38,14 +38,7 @@ limit_right = 800
 [node name="LevelUI" parent="." instance=ExtResource( 1 )]
 level_name = "wall jump"
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2( 1000, 1000 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource( 8 )
-centered = false
+[node name="ParallaxBackground" parent="." instance=ExtResource( 8 )]
 
 [editable path="Player"]
 

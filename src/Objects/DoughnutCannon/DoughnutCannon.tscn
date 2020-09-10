@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/Objects/dough_cannon2.png" type="Texture" id=1]
 [ext_resource path="res://src/Objects/DoughnutCannon/DoughnutCannon.gd" type="Script" id=2]
@@ -6,6 +6,9 @@
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 16.0
 height = 46.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9, 35 )
 
 [node name="DoughnutCannon" type="KinematicBody2D"]
 collision_layer = 2
@@ -29,4 +32,8 @@ shape = SubResource( 1 )
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 45, 0 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( -32, 1 )
+shape = SubResource( 2 )
 [connection signal="timeout" from="StrikeTimer" to="." method="_on_StrikeTimer_timeout"]

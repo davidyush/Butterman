@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/font/MainFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://src/UI/LevelUI.gd" type="Script" id=2]
+[ext_resource path="res://src/UI/LevelMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UI/ThemeUI.tres" type="Theme" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "show_name"
-length = 3.0
+length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control/LabelName:rect_position")
 tracks/0/interp = 1
@@ -13,7 +15,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 2.5, 3 ),
+"times": PoolRealArray( 0, 0.5, 4.5, 5 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 240, -50 ), Vector2( 240, 5 ), Vector2( 240, 5 ), Vector2( 240, -50 ) ]
@@ -25,6 +27,7 @@ script = ExtResource( 2 )
 [node name="Control" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -47,9 +50,10 @@ __meta__ = {
 [node name="LabelName" type="Label" parent="Control"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -100.0
-margin_right = 100.0
-margin_bottom = 35.0
+margin_left = -80.0
+margin_top = -50.0
+margin_right = 120.0
+margin_bottom = -15.0
 rect_scale = Vector2( 0.8, 0.8 )
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.054902, 0.0509804, 0.0509804, 1 )
@@ -66,4 +70,7 @@ autostart = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "show_name"
 anims/show_name = SubResource( 1 )
+
+[node name="LevelMenu" parent="." instance=ExtResource( 3 )]
+visible = false
 [connection signal="timeout" from="LevelTimer" to="." method="_on_LevelTimer_timeout"]

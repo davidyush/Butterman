@@ -1,8 +1,10 @@
 extends KinematicBody2D
 
 export (int) var ACCELERATION = 100
-export (int) var MAX_SPEED = 150
+export (int) var MAX_SPEED = 200
 var motion = Vector2.ZERO
+
+var MainInstances = ResourceLoader.MainInstances
 
 onready var animPlayer := $AnimationPlayer
 
@@ -10,10 +12,7 @@ func _ready() -> void:
     set_physics_process(false)
 
 func _physics_process(delta: float) -> void:
-    var parent = get_parent()
-    var player = parent.find_node('Player')
-    if player == null:
-        player = parent.get_parent().find_node('Player')
+    var player = MainInstances.Player
     if player != null:
         chase_player(player, delta)
 

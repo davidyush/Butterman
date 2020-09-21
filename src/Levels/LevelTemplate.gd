@@ -7,7 +7,6 @@ onready var player: = $Player
 const CELL_SIZE: = 16
 var time_passed: = 0.0
 var map_limits: Dictionary
-var paused = false
 
 var MainInstances = ResourceLoader.MainInstances
 
@@ -40,6 +39,3 @@ func _physics_process(delta: float) -> void:
     if Input.is_action_just_pressed("restart_level"):
         get_tree().reload_current_scene()
         
-    if Input.is_action_just_pressed("pause"):
-        print(!paused)
-        #get_tree().paused = !paused

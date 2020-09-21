@@ -10,7 +10,7 @@ const DustEffect = preload("res://src/Player/DustEffect.tscn")
 #todo -> full refactor with pure functions
 #pomoyka
 export (int) var ACCELERATION = 1500
-export (int) var MAX_SPEED = 250
+export (int) var MAX_SPEED = 350
 export (float) var FRICTION = 0.15
 export (int) var GRAVITY = 1000
 export (int) var WALL_SLIDE_SPEED = 150
@@ -93,7 +93,7 @@ func apply_speed_up():
         else:
             MAX_SPEED = 500
     if Input.is_action_just_released("speed_up"):
-        MAX_SPEED = 250
+        MAX_SPEED = 350
     
 
 func get_input_vector():
@@ -103,7 +103,7 @@ func get_input_vector():
     if current_sign != 0:
         sprite.scale.x = current_sign * -1
     if input_vector.x != 0 and (is_on_floor() or is_on_wall()):
-        if MAX_SPEED > 250:
+        if MAX_SPEED > 350:
             createDustEffect()
             createDustEffect()
         else:

@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/font/MainFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/UI/LevelMenu.gd" type="Script" id=2]
+[ext_resource path="res://src/UI/ThemeUI.tres" type="Theme" id=3]
+
+[node name="LevelMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -78.0
+margin_top = -24.0
+margin_right = 78.0
+margin_bottom = 24.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+margin_right = 156.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 1 )
+text = "restart"
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+margin_top = 36.0
+margin_right = 156.0
+margin_bottom = 64.0
+custom_fonts/font = ExtResource( 1 )
+text = "resume"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+margin_top = 72.0
+margin_right = 156.0
+margin_bottom = 100.0
+custom_fonts/font = ExtResource( 1 )
+text = "main menu"
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_Button2_pressed"]

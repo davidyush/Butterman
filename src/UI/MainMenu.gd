@@ -2,6 +2,7 @@ extends Control
 
 export (String, FILE, "*.tscn") var target_stage 
 
+onready var main_label = $MainLabel
 onready var play = $MainButtons/Play
 onready var main_btns = $MainButtons
 onready var choose_lvls = $ChooseLevelMenu
@@ -22,12 +23,14 @@ func _on_Exit_pressed() -> void:
 
 
 func _on_Choose_pressed() -> void:
-    $MainButtons.visible = false
-    $ChooseLevelMenu.visible = true
+    main_btns.visible = false
+    choose_lvls.visible = true
+    main_label.visible = false
     first_lvl.grab_focus()
 
 
 func _on_BackBtn_pressed() -> void:
-    $MainButtons.visible = true
-    $ChooseLevelMenu.visible = false
+    main_btns.visible = true
+    choose_lvls.visible = false
+    main_label.visible = true
     play.grab_focus()
